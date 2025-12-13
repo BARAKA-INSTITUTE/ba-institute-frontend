@@ -45,7 +45,7 @@ const Sidebar = ({ open, onClose }) => {
           </svg>
         </button>
 
-        <div className="mt-20 px-6 flex flex-col space-y-6 text-lg">
+        <div className="mt-20 px-6 flex flex-col space-y-6 text-lg ">
           {navLinks.map(({ id, name }) => {
             const iconObj = navIcons.find((icon) => icon.id === id);
 
@@ -53,7 +53,7 @@ const Sidebar = ({ open, onClose }) => {
               <p
                 key={id}
                 onClick={onClose}
-                className="cursor-pointer hover:text-emerald-400 transition-colors duration-200 flex items-center gap-2"
+                className="cursor-pointer hover:text-emerald-400 transition-colors duration-200 flex items-center gap-4  "
               >
                 <i className={iconObj?.icon}></i>
                 {name}

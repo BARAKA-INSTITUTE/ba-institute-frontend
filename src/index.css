@@ -1,1 +1,20 @@
 @import "tailwindcss";
+
+/* index.css */
+body.light {
+  background-color: #ffffff;
+  color: #111;
+  transition: all 0.3s;
+}
+
+body.dark {
+  background-color: #111111;
+  color: #f5f5f5;
+  transition: all 0.3s;
+}
+
+.heroBanner {
+    background: url(/public/hero-banner-main.jpg )  no-repeat center center;
+    background-size: cover;
+    height: 80vh;
+}

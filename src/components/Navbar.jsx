@@ -1,32 +1,48 @@
-import React, { useState } from "react";
+
+import React from "react";
 import Sidebar from "./Sidebar";
 import { navLinks } from "@utils/constants";
+import { useState } from "react";
 
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
+const Navbar = ({ isDarkMode, setIsDarkMode,}) => {
+  const navBg = isDarkMode ? "bg-gray-900 text-white" : "bg-gray-100 text-gray-900";
+    const [open, setOpen] = useState(false);
 
   return (
-    <>
-      <nav className="bg-gray-900/80 backdrop-blur-lg text-white px-6 py-4 flex items-center justify-between shadow-md">
-        <div className="flex items-center space-x-3">
-          <img src="/logo.png" alt="logo" className="h-8" />
-          <p className="font-semibold text-xl tracking-wide">
-            Baraka Institute
-          </p>
-        </div>
+  <nav className={`${navBg} px-6 py-4 flex items-center justify-between shadow-md transition-colors duration-300 border-b`}>
+      <div className="flex items-center space-x-3 ">
+        <img src="/logo.png" alt="logo" className="h-8" />
+        <p className="font-semibold text-xl tracking-wide">Baraka Institute</p>
+      </div>
 
-        <ul className="hidden md:flex items-center space-x-8">
-          {navLinks.map(({ id, name }) => (
+      <ul className="hidden md:flex items-center space-x-8">
+        {navLinks.map(({ id, name }) => {
+          if (id === 5) {
+            return (
+              <li
+                key={id}
+                className="cursor-pointer hover:text-emerald-400 transition-colors duration-200"
+                onClick={() => setIsDarkMode(!isDarkMode)}
+              >
+                <i className={isDarkMode ? "fa-solid fa-moon" : "fa-solid fa-sun"}></i>
+              </li>
+            );
+          }
+
+          const linkColor = isDarkMode ? "hover:text-emerald-300" : "hover:text-emerald-400";
+
+          return (
             <li
               key={id}
-              className="cursor-pointer hover:text-emerald-400 transition-colors duration-200"
+              className={`cursor-pointer transition-colors duration-200 ${linkColor}`}
             >
               {name}
             </li>
-          ))}
-        </ul>
+          );
+        })}
+      </ul>
 
-        <button
+      <button
           onClick={() => setOpen(true)}
           className="md:hidden focus:outline-none"
         >
@@ -44,10 +60,9 @@ const Navbar = () => {
             />
           </svg>
         </button>
-      </nav>
 
       <Sidebar open={open} onClose={() => setOpen(false)} />
-    </>
+    </nav>
   );
 };
 
