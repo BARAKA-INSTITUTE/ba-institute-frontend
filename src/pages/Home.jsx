@@ -1,5 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { gsap } from "gsap";
+import About from "./About";
+import Services from "./Services";
+import Contact from "./Contact";
 
 const Home = () => {
   const titleRef = useRef(null);
@@ -32,34 +35,55 @@ const Home = () => {
   }, []);
 
   return (
-   <section className="heroBanner bg-gradient-to-r from-blue-600 to-indigo-700 text-white">
-  <div className="max-w-7xl mx-auto px-6 py-20 flex flex-col md:flex-row items-start md:items-center gap-8">
-    <div className="md:w-1/2">
-      <h1
-        ref={titleRef}
-        className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 tracking-wide text-left"
+    <>
+      <section
+        className="relative overflow-hidden bg-emerald-100 text-white rounded-2xl mt-8"
+        id="home"
       >
-        Ma'lumotlarga asoslangan tushunchalar qulfini oching
-      </h1>
-      <p
-        ref={textRef}
-        className="text-lg sm:text-xl md:text-2xl mb-6 text-left"
-      >
-        Biznes qarorlaringizni amaliy tahlil va aqlli yechimlar bilan
-        o‘zgartiring.
-      </p>
-      <button
-        ref={buttonRef}
-        className="bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-200 transition"
-      >
-        Boshlash
-      </button>
-    </div>
+        <div className="absolute inset-0 bg-black/30"></div>
 
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex flex-col md:flex-row items-center justify-between gap-12">
+          <div className="max-w-xl">
+            <h1
+              ref={titleRef}
+              className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight"
+            >
+              Ma'lumotlarga asoslangan tushunchalar qulfini oching
+            </h1>
+            <p ref={textRef} className="text-lg sm:text-xl mb-8 opacity-90">
+              Biznes qarorlaringizni amaliy tahlil va aqlli yechimlar bilan
+              o‘zgartiring.
+            </p>
+            <button
+              ref={buttonRef}
+              className="bg-white text-indigo-700 font-bold px-8 py-4 rounded-xl shadow-2xl hover:bg-gray-100 transition transform hover:scale-105"
+            >
+              Boshlash
+            </button>
+          </div>
 
-  </div>
-</section>
+          <div ref={imageRef} className="md:w-1/2 flex justify-center">
+            <img
+              src="hero-banner-main.jpg"
+              alt="Analytics dashboard"
+              className="w-full max-w-2xl drop-shadow-2xl"
+            />
+          </div>
+        </div>
+      </section>
 
+      <section id="about">
+        <About />
+      </section>
+
+      <section id="services">
+        <Services />
+      </section>
+
+      <section id="contact">
+        <Contact />
+      </section>
+    </>
   );
 };
 

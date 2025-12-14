@@ -14,7 +14,8 @@ body.dark {
 }
 
 .heroBanner {
-    background: url(/public/hero-banner-main.jpg )  no-repeat center center;
-    background-size: cover;
-    height: 80vh;
+  background: url(/public/hero-banner-main.jpg) no-repeat center center;
+  background-size: cover;
+  height: 80vh;
 }
+
