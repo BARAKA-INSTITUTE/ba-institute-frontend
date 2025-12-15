@@ -5,6 +5,8 @@ import { services } from "@utils/constants";
 const Services = () => {
   const sectionsRef = useRef([]);
 
+  // TODO: Animate sections on mount
+
   useEffect(() => {
     sectionsRef.current.forEach((section, idx) => {
       gsap.fromTo(
@@ -31,7 +33,7 @@ const Services = () => {
 
   return (
     <>
-
+      {/*  OUR SERVICES SECTION */}
       <div
         className="flex flex-col md:flex-row items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto bg-emerald-300 rounded-xl shadow-lg mt-10"
         ref={(el) => (sectionsRef.current[0] = el)}
@@ -52,12 +54,12 @@ const Services = () => {
           <img
             src={services.intro.img}
             alt="Professional business team"
-            className="w-full h-full object-cover"
+            className="cursor-pointer w-full h-full object-cover"
           />
         </div>
       </div>
 
-
+      {/* THIS MAPS FROM CONSTANT FILE */}
       {serviceList.map((service, idx) => (
         <div
           key={idx}
@@ -86,7 +88,7 @@ const Services = () => {
             <img
               src={service.img}
               alt={service.title}
-              className="w-full h-full object-cover"
+              className="cursor-pointer w-full h-full object-cover"
             />
           </div>
         </div>

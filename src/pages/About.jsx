@@ -154,7 +154,7 @@ const About = () => {
                 {teamMembers.map((member) => (
                   <div
                     key={member.id}
-                    className="w-full flex-shrink-0 px-4 sm:w-1/2 md:w-1/3 lg:w-1/4"
+                    className="cursor-pointer w-full flex-shrink-0 px-4 sm:w-1/2 md:w-1/3 lg:w-1/4"
                   >
                     <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-3 transition-all duration-300 flex flex-col h-full">
                       <img

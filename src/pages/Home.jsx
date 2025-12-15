@@ -146,13 +146,13 @@ const Home = () => {
 
             <button
               onClick={prev}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white w-14 h-14 rounded-full hover:bg-white/30 flex items-center justify-center text-3xl z-10 transition"
+              className=" cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white w-14 h-14 rounded-full hover:bg-white/30 flex items-center justify-center text-3xl z-10 transition"
             >
               ‹
             </button>
             <button
               onClick={next}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white w-14 h-14 rounded-full hover:bg-white/30 flex items-center justify-center text-3xl z-10 transition"
+              className="cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white w-14 h-14 rounded-full hover:bg-white/30 flex items-center justify-center text-3xl z-10 transition"
             >
               ›
             </button>
