@@ -1,6 +1,9 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { services } from "@utils/constants";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Services = () => {
   const sectionsRef = useRef([]);
@@ -8,19 +11,67 @@ const Services = () => {
   // TODO: Animate sections on mount
 
   useEffect(() => {
-    sectionsRef.current.forEach((section, idx) => {
-      gsap.fromTo(
-        section,
-        { autoAlpha: 0, y: 50 },
-        {
-          duration: 1,
-          autoAlpha: 1,
-          y: 0,
-          delay: idx * 0.3,
-          ease: "power3.out",
+    const ctx = gsap.context(() => {
+      sectionsRef.current.forEach((section, idx) => {
+        if (!section) return;
+
+        gsap.fromTo(
+          section,
+          { opacity: 0, y: 80 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+
+        const textPart = section.querySelector(".text-part");
+        const imgPart = section.querySelector(".img-part");
+
+        if (textPart && imgPart) {
+          gsap.fromTo(
+            textPart.children,
+            { opacity: 0, y: 40 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              stagger: 0.2,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: textPart,
+                start: "top 80%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
+
+          gsap.fromTo(
+            imgPart,
+            { opacity: 0, scale: 0.9 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 1.2,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: imgPart,
+                start: "top 90%",
+                toggleActions: "play none none reverse",
+              },
+            }
+          );
         }
-      );
+      });
     });
+
+    return () => ctx.revert();
   }, []);
 
   const serviceList = [
@@ -35,17 +86,17 @@ const Services = () => {
     <>
       {/*  OUR SERVICES SECTION */}
       <div
-        className="flex flex-col md:flex-row items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto bg-emerald-300 rounded-xl shadow-lg mt-10"
+        className="flex flex-col md:flex-row items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto mt-10"
         ref={(el) => (sectionsRef.current[0] = el)}
       >
         <div className="text-part flex-1 flex flex-col justify-center space-y-6">
-          <h1 className="font-serif text-4xl font-bold text-emerald-900">
+          <h1 className="font-serif text-4xl font-bold  dark:">
             {services.intro.title}
           </h1>
-          <p className="text-lg leading-relaxed text-emerald-900">
+          <p className="text-lg leading-relaxed  dark:">
             {services.intro.text1}
           </p>
-          <p className="text-lg leading-relaxed text-emerald-900">
+          <p className="text-lg leading-relaxed  dark:">
             {services.intro.text2}
           </p>
         </div>
@@ -65,18 +116,18 @@ const Services = () => {
           key={idx}
           className={`flex flex-col ${
             idx % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-          } items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto bg-emerald-300 rounded-xl shadow-lg mt-10`}
+          } items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto  mt-10`}
           ref={(el) => (sectionsRef.current[idx + 1] = el)}
         >
           <div className="text-part flex-1 flex flex-col justify-center space-y-6">
-            <h2 className="font-serif text-3xl font-bold text-emerald-900">
+            <h2 className="font-serif text-3xl font-bold  dark:">
               {service.title}
             </h2>
-            <p className="text-lg leading-relaxed text-emerald-900">
+            <p className="text-lg leading-relaxed  dark:">
               {service.description}
             </p>
             {service.features && (
-              <ul className="list-disc pl-6 space-y-2 text-emerald-900">
+              <ul className="list-disc pl-6 space-y-2  dark:">
                 {service.features.map((feature, i) => (
                   <li key={i}>{feature}</li>
                 ))}

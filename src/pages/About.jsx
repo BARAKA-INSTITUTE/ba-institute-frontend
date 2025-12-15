@@ -1,11 +1,17 @@
 import { aboutUs, teamMembers } from "@utils/constants";
 import React, { useState, useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const sectionsRef = useRef([]);
-  const carouselRef = useRef();
+  const aboutSectionRef = useRef(null);
+  const missionSectionRef = useRef(null);
+  const teamSectionRef = useRef(null);
+  const carouselRef = useRef(null);
+  const teamCardsRef = useRef([]);
 
   const getVisibleCount = () => {
     if (typeof window === "undefined") return 4;
@@ -38,22 +44,6 @@ const About = () => {
   }, [currentIndex, teamMembers.length, visibleCount]);
 
   useEffect(() => {
-    sectionsRef.current.forEach((section, idx) => {
-      gsap.fromTo(
-        section,
-        { autoAlpha: 0, y: 50 },
-        {
-          duration: 1,
-          autoAlpha: 1,
-          y: 0,
-          delay: idx * 0.3,
-          ease: "power3.out",
-        }
-      );
-    });
-  }, []);
-
-  useEffect(() => {
     if (carouselRef.current) {
       gsap.to(carouselRef.current, {
         x: `-${(currentIndex * 100) / visibleCount}%`,
@@ -81,18 +71,92 @@ const About = () => {
     touchStartX.current = null;
   };
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        aboutSectionRef.current,
+        { opacity: 0, y: 80 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: aboutSectionRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        missionSectionRef.current,
+        { opacity: 0, y: 80 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: missionSectionRef.current,
+            start: "top 85%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        teamSectionRef.current.querySelector("h2"),
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: teamSectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      teamCardsRef.current.forEach((card, i) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 60, scale: 0.95 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: "power3.out",
+            delay: i * 0.15,
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <>
       <div
-        className="sided-about-us flex flex-col md:flex-row items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto bg-emerald-300 rounded-xl shadow-lg mt-10"
-        ref={(el) => (sectionsRef.current[0] = el)}
+        ref={aboutSectionRef}
+        className="sided-about-us flex flex-col md:flex-row items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto   mt-10"
       >
         <div className="about-us text-part flex-1 flex flex-col justify-center space-y-4">
-          <h1 className="font-serif text-3xl font-bold text-emerald-900">
+          <h1 className="font-serif text-3xl font-bold ">
             Biz Haqimizda
           </h1>
           {aboutUs.find((item) => item.id === 1)?.text && (
-            <p className="text-lg leading-relaxed text-emerald-900">
+            <p className="text-lg leading-relaxed ">
               {aboutUs.find((item) => item.id === 1)?.text}
             </p>
           )}
@@ -110,10 +174,10 @@ const About = () => {
       </div>
 
       <div
-        className="sided-our-mission flex flex-col md:flex-row items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto bg-emerald-300 rounded-xl shadow-lg mt-10"
-        ref={(el) => (sectionsRef.current[1] = el)}
+        ref={missionSectionRef}
+        className="sided-our-mission flex flex-col md:flex-row items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto  mt-10"
       >
-        <div className="img-part flex-1 rounded-xl overflow-hidden border-2 border-gray-300 hover:scale-105 cursor-pointer transition-transform duration-300 shadow-lg w-full h-64 md:h-auto">
+        <div className="img-part rounded-xl flex-1 overflow-hidden border-2 border-gray-300 hover:scale-105 cursor-pointer transition-transform duration-300 shadow-lg w-full h-64 md:h-auto">
           {aboutUs.find((item) => item.id === 3)?.img && (
             <img
               src={aboutUs.find((item) => item.id === 3)?.img}
@@ -124,11 +188,11 @@ const About = () => {
         </div>
 
         <div className="about-us text-part flex-1 flex flex-col justify-center space-y-4">
-          <h1 className="font-serif text-3xl font-bold text-emerald-900">
+          <h1 className="font-serif text-3xl font-bold ">
             Bizning vazifamiz
           </h1>
           {aboutUs.find((item) => item.id === 4)?.text && (
-            <p className="text-lg leading-relaxed text-emerald-900">
+            <p className="text-lg leading-relaxed ">
               {aboutUs.find((item) => item.id === 4)?.text}
             </p>
           )}
@@ -136,11 +200,11 @@ const About = () => {
       </div>
 
       <div
-        className="our-team-section bg-emerald-300 py-16 mt-10 rounded-xl shadow-lg"
-        ref={(el) => (sectionsRef.current[2] = el)}
+        ref={teamSectionRef}
+        className="our-team-section  py-16 mt-10 "
       >
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="font-serif text-4xl font-bold text-center text-emerald-900 mb-12">
+          <h2 className="font-serif text-4xl font-bold text-center  mb-12">
             Bizning Jamoamiz
           </h2>
 
@@ -151,22 +215,23 @@ const About = () => {
               onTouchEnd={handleTouchEnd}
             >
               <div className="flex" ref={carouselRef}>
-                {teamMembers.map((member) => (
+                {teamMembers.map((member, idx) => (
                   <div
                     key={member.id}
+                    ref={(el) => (teamCardsRef.current[idx] = el)}
                     className="cursor-pointer w-full flex-shrink-0 px-4 sm:w-1/2 md:w-1/3 lg:w-1/4"
                   >
-                    <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:-translate-y-3 transition-all duration-300 flex flex-col h-full">
+                    <div className="bg-white rounded-xl overflow-hidden hover:-translate-y-3 transition-all duration-300 flex flex-col h-full">
                       <img
                         src={member.img}
                         alt={member.name}
                         className="w-full h-72 object-cover"
                       />
-                      <div className="p-6 bg-emerald-50 flex flex-col flex-grow">
-                        <h3 className="text-2xl font-semibold text-emerald-900 text-center">
+                      <div className="p-6  flex flex-col flex-grow">
+                        <h3 className="text-2xl font-semibold text-emerald-400 text-center">
                           {member.name}
                         </h3>
-                        <p className="text-emerald-700 text-center mt-3">
+                        <p className="text-gray-900 text-center mt-3">
                           {member.role}
                         </p>
 
@@ -217,7 +282,7 @@ const About = () => {
             {currentIndex > 0 && (
               <button
                 onClick={prev}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-emerald-900 text-white w-12 h-12 rounded-full shadow-2xl hover:bg-emerald-800 flex items-center justify-center text-2xl z-10"
+                className="absolute left-2 top-1/2 -translate-y-1/2   w-12 h-12 rounded-full shadow-2xl hover:bg-emerald-800 flex items-center justify-center text-2xl z-10"
               >
                 ‹
               </button>
@@ -226,7 +291,7 @@ const About = () => {
             {currentIndex < maxIndex && (
               <button
                 onClick={next}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-emerald-900 text-white w-12 h-12 rounded-full shadow-2xl hover:bg-emerald-800 flex items-center justify-center text-2xl z-10"
+                className="absolute right-2 top-1/2 -translate-y-1/2   w-12 h-12 rounded-full shadow-2xl hover:bg-emerald-800 flex items-center justify-center text-2xl z-10"
               >
                 ›
               </button>

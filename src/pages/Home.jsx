@@ -1,25 +1,27 @@
 import React, { useRef, useEffect, useState } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import About from "./About";
 import Services from "./Services";
 import Contact from "./Contact";
 import { testimonials } from "@utils/constants";
+
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const titleRef = useRef(null);
   const textRef = useRef(null);
   const buttonRef = useRef(null);
   const imageRef = useRef(null);
+  const heroSectionRef = useRef(null);
+
+  const testimonialsSectionRef = useRef(null);
+  const testimonialItemsRef = useRef([]);
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
 
-  const getVisibleCount = () => {
-    if (typeof window === "undefined") return 1;
-    return 1; 
-  };
-
-  const visibleCount = getVisibleCount();
   const maxIndex = Math.max(0, testimonials.length - 1);
 
   const next = () => {
@@ -56,18 +58,92 @@ const Home = () => {
     touchStartX.current = null;
   };
 
+  // GSAP Animations with ScrollTrigger
   useEffect(() => {
-    const tl = gsap.timeline({ defaults: { duration: 1, ease: "power3.out" } });
-    tl.fromTo(titleRef.current, { opacity: 0, y: -50 }, { opacity: 1, y: 0 })
-      .fromTo(textRef.current, { opacity: 0, y: -30 }, { opacity: 1, y: 0 }, "-=0.5")
-      .fromTo(buttonRef.current, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1 }, "-=0.5")
-      .fromTo(imageRef.current, { opacity: 0, x: 50 }, { opacity: 1, x: 0 }, "-=0.7");
+    const ctx = gsap.context(() => {
+      // Hero section initial load (same as before)
+      const tl = gsap.timeline();
+      tl.fromTo(titleRef.current, { opacity: 0, y: -50 }, { opacity: 1, y: 0, duration: 1 })
+        .fromTo(textRef.current, { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 1 }, "-=0.5")
+        .fromTo(buttonRef.current, { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 1 }, "-=0.5")
+        .fromTo(imageRef.current, { opacity: 0, x: 100 }, { opacity: 1, x: 0, duration: 1.2 }, "-=0.8");
+
+      // Parallax effect on hero image as user scrolls down
+      gsap.to(imageRef.current, {
+        yPercent: -30,
+        ease: "none",
+        scrollTrigger: {
+          trigger: heroSectionRef.current,
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      // Testimonials section title reveal
+      gsap.fromTo(
+        testimonialsSectionRef.current.querySelector("h2"),
+        { opacity: 0, y: 60 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: testimonialsSectionRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+
+      // Stagger testimonial cards as they enter viewport
+      testimonialItemsRef.current.forEach((item, i) => {
+        gsap.fromTo(
+          item,
+          {
+            opacity: 0,
+            y: 80,
+            scale: 0.95,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1,
+            ease: "power3.out",
+            delay: i * 0.2,
+            scrollTrigger: {
+              trigger: item,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          }
+        );
+      });
+
+      // Optional: Pin testimonials section for dramatic effect
+      // ScrollTrigger.create({
+      //   trigger: testimonialsSectionRef.current,
+      //   start: "top top",
+      //   end: "+=1000",
+      //   pin: true,
+      //   anticipatePin: 1,
+      // });
+
+    });
+
+    return () => ctx.revert();
   }, []);
 
   return (
     <>
-      <section className="relative overflow-hidden bg-emerald-100 text-white rounded-2xl mt-8" id="home">
-        <div className="absolute inset-0 bg-black/30"></div>
+      <section
+        ref={heroSectionRef}
+        className="relative overflow-hidden  rounded-2xl mt-8"
+        id="home"
+      >
+        <div className="absolute inset-0 "></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="max-w-xl">
@@ -89,17 +165,17 @@ const Home = () => {
             <img
               src="hero-banner-main.jpg"
               alt="Analytics dashboard"
-              className="w-full max-w-2xl drop-shadow-2xl"
+              className="w-full max-w-2xl drop-shadow-2xl rounded-xl"
             />
           </div>
         </div>
       </section>
 
-      <section className="py-20 mt-10 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900"></div>
+      <section ref={testimonialsSectionRef} className="py-20 mt-20 relative overflow-hidden">
+        <div className="absolute inset-0  "></div>
 
         <div className="relative max-w-7xl mx-auto px-6">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-center text-white mb-16">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold text-center  dark: mb-16">
             Mijozlarimiz Fikri
           </h2>
 
@@ -111,7 +187,11 @@ const Home = () => {
             >
               <div className="flex" ref={carouselRef}>
                 {testimonials.map((testimonial, idx) => (
-                  <div key={idx} className="w-full flex-shrink-0 px-8">
+                  <div
+                    key={idx}
+                    ref={(el) => (testimonialItemsRef.current[idx] = el)}
+                    className="w-full flex-shrink-0 px-8"
+                  >
                     <div className="grid md:grid-cols-2 gap-12 items-center py-12">
                       <div className="flex justify-center md:justify-end">
                         <div className="relative">
@@ -126,13 +206,13 @@ const Home = () => {
                         </div>
                       </div>
 
-                      <div className="text-white flex flex-col justify-center">
+                      <div className=" flex flex-col justify-center">
                         <div className="text-7xl md:text-9xl font-serif text-emerald-300 mb-6">“</div>
-                        <p className="text-xl md:text-2xl leading-relaxed text-white/90 mb-10">
+                        <p className="text-xl md:text-2xl leading-relaxed /90 mb-10">
                           {testimonial.quote}
                         </p>
                         <div>
-                          <h3 className="text-2xl md:text-3xl font-bold text-white">
+                          <h3 className="text-2xl md:text-3xl font-bold ">
                             {testimonial.name}
                           </h3>
                           <p className="text-lg text-emerald-300 mt-2">{testimonial.role}</p>
@@ -146,13 +226,13 @@ const Home = () => {
 
             <button
               onClick={prev}
-              className=" cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white w-14 h-14 rounded-full hover:bg-white/30 flex items-center justify-center text-3xl z-10 transition"
+              className="cursor-pointer absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm  w-14 h-14 rounded-full hover:bg-white/30 flex items-center justify-center text-3xl z-10 transition"
             >
               ‹
             </button>
             <button
               onClick={next}
-              className="cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white w-14 h-14 rounded-full hover:bg-white/30 flex items-center justify-center text-3xl z-10 transition"
+              className="cursor-pointer absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm  w-14 h-14 rounded-full hover:bg-white/30 flex items-center justify-center text-3xl z-10 transition"
             >
               ›
             </button>
