@@ -79,7 +79,7 @@ const teamMembers = [
     text2:
       "Bizning maqsadimiz — sizning biznesingizni raqobatbardosh qilish va samaradorlikni oshirish orqali uzoq muddatli muvaffaqiyatga erishishga yordam berish.",
     img:
-      "https://media.istockphoto.com/id/1947499362/photo/happy-group-of-business-people-discussing-strategy-during-team-meeting-at-the-office-desk.jpg?s=612x612&w=0&k=20&c=UXPrlQx09d8EP4_kTdAa-vC2LxD_ppY1tiG7eTPGVbE=",
+      "services-1.jpg",
   },
 
   hiring: {
@@ -92,7 +92,7 @@ const teamMembers = [
       "Loyiha boshidan oxirigacha qo'llab-quvvatlash",
     ],
     img:
-      "https://www.ey.com/content/dam/ey-unified-site/ey-com/en-us/campaigns/cro-risk/images/ey-diverse-professionals-in-a-productive-business-meeting.jpg",
+      "services-2.jpg",
   },
 
   consulting: {
@@ -105,7 +105,7 @@ const teamMembers = [
       "IT yechimlarni integratsiya qilish",
     ],
     img:
-      "https://images.klipfolio.com/website/public/bf9c6fbb-06bf-4f1d-88a7-d02b70902bd1/data-dashboard.png",
+      "services-3.avif",
   },
 
   education: {
@@ -118,7 +118,7 @@ const teamMembers = [
       "Real loyihalarda amaliyot",
     ],
     img:
-      "https://precollege.usc.edu/wp-content/uploads/2025/10/usc-precollege-online-course-analytics-1920x1080.jpg",
+      "services-4.webp",
   },
 
   modeling: {
@@ -126,7 +126,7 @@ const teamMembers = [
     description:
       "BPMN va boshqa standartlar asosida jarayonlarni vizual modellashtirish va optimallashtirish xizmatlari.",
     img:
-      "https://images.ctfassets.net/w6r2i5d8q73s/FwGqnbnP8U9KabW4BSIsb/9f07e9401f3b8f8e9d8146009b3e78f0/bpmn_diagram_header_image_EN_standard_4_3.png",
+      "services-5.png",
   },
 
   workshops: {
@@ -134,7 +134,7 @@ const teamMembers = [
     description:
       "Stakeholder'lar bilan intervyu, workshop va brainstorming orqali aniq va to'liq talablarni yig'ish.",
     img:
-      "https://res.cloudinary.com/delib/images/w_2560,h_1708,c_scale/w_1400,c_limit/f_auto,q_auto:good/v1734714783/newsroom/pexels-fauxels-3183150/pexels-fauxels-3183150.jpg?_i=AA",
+      "services-6.avif",
   },
 };
 
@@ -142,7 +142,7 @@ const contact = {
   hero: {
     title: "Bog'lanish",
     subtitle: "Savollaringiz bormi? Biz bilan bog'laning – sizga yordam berishga tayyormiz!",
-    bgImage: "https://thumbs.dreamstime.com/b/abstract-background-shows-emerald-green-gold-wave-digital-illustration-futuristic-vibe-perfect-tech-science-themes-design-411204303.jpg", // Elegant emerald wave background
+    bgImage: "contact.jpg",
   },
 
   info: {
@@ -162,4 +162,28 @@ const contact = {
   mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.367631148498!2d69.287963315432!3d41.3110819792705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b50a3f2f2a5%3A0x4f5c1b8e3d3e3e3e!2sTashkent%2C%20Uzbekistan!5e0!3m2!1sen!2sus!4v1734270000000", // Replace with your exact location
 };
 
-export { navLinks, navIcons, socialLinks, footerLinks, aboutUs, teamMembers, services, contact };
+ const testimonials = [
+  {
+    name: "Azizbek Karimov",
+    role: "IT Direktori, UzAuto Motors",
+    quote:
+      "Ushbu jamoa bizning biznes jarayonlarimizni to'liq optimallashtirdi. Talablar yig'ish va modellashtirish bo'yicha professional yondashuvlari tufayli loyihamiz muddatidan oldin yakunlandi.",
+    img: "https://media.istockphoto.com/id/2004891062/photo/happy-mid-aged-business-woman-manager-handshaking-greeting-client-in-office.jpg?s=612x612&w=0&k=20&c=kP6DSKhIVMO-m27l4nCmvpwzaKvzV8ncPT9elotc4QI=",
+  },
+  {
+    name: "Dilnoza Salimova",
+    role: "Loyiha Menejeri, Kapitalbank",
+    quote:
+      "Konsalting xizmatlari va ta'limiy kurslar bizning ichki tahlilchilar jamoasini yangi darajaga olib chiqdi. Endi biz o'zimiz murakkab loyihalarni muvaffaqiyatli boshqara olamiz.",
+    img: "https://media.istockphoto.com/id/1591572504/photo/cheerful-businesswomen-shaking-hands-in-meeting-room.jpg?s=612x612&w=0&k=20&c=mo5VjVyA-t4ydS6ZjJVxaUSi0v9KVbJV_Go5EOF_B8M=",
+  },
+  {
+    name: "Rustam Toshpulatov",
+    role: "CEO, TechSolutions LLC",
+    quote:
+      "Biznes tahlilchi yollash xizmati orqali biz ajoyib mutaxassisni topdik. U bir oy ichida kompaniyamiz samaradorligini 30% ga oshirdi. Rahmat!",
+    img: "https://media.istockphoto.com/id/1824279555/photo/happy-insurance-agent-talking-to-her-customers-in-the-office.jpg?s=612x612&w=0&k=20&c=yc0_-ofn4XzXpfRFyGYlUgvqigBPBV4nq8I9eIjTHOI=",
+  },
+];
+
+export { navLinks, navIcons, socialLinks, footerLinks, aboutUs, teamMembers, services, contact, testimonials };
