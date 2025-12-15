@@ -15,7 +15,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
 
   return (
     <nav
-      className={`${navBg} px-6 py-4 flex items-center justify-between shadow-md transition-colors duration-300 border-b`}
+      className={`${navBg} sticky top-0 z-50 px-6 py-4 flex items-center justify-between shadow-md transition-colors duration-300 border-b`}
     >
       <div
         className="flex items-center space-x-3 cursor-pointer"
@@ -26,7 +26,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
       </div>
 
       <ul className="hidden md:flex items-center space-x-8">
-        {navLinks.map(({ id, name }) => {
+        {navLinks.map(({ id, name, targetId }) => {
           if (id === 5) {
             return (
               <li
@@ -51,7 +51,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
             <li
               key={id}
               className={`cursor-pointer transition-colors duration-200 ${linkColor}`}
-              onClick={() => handleScroll(name.toLowerCase())}
+              onClick={() => handleScroll(targetId)}
             >
               {name}
             </li>
