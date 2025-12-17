@@ -42,6 +42,7 @@ const teamMembers = [
     img: "example-1.jpg",
     linkedin: "https://linkedin.com/in/tomsmith",
     instagram: "https://instagram.com/tomsmith",
+    bio: "John founded the company in 2015 with a vision to revolutionize the industry. He has over 15 years of experience in leadership and innovation.",
   },
   {
     id: 2,
@@ -50,6 +51,7 @@ const teamMembers = [
     img: "example-2.jpg",
     linkedin: "https://linkedin.com/in/aliveli",
     instagram: "https://instagram.com/aliveli",
+     bio: "Ali is a skilled frontend developer with a passion for creating intuitive user interfaces. He has been with the company since 2018.",
   },
   {
     id: 3,
@@ -58,6 +60,7 @@ const teamMembers = [
     img: "example-3.jpg",
     linkedin: "https://linkedin.com/in/saraahmed",
     instagram: "https://instagram.com/saraahmed",
+    bio: "Sara specializes in backend development and database management. She joined the team in 2019 and has been instrumental in building robust systems.",
   },
   {
     id: 4,
@@ -66,6 +69,7 @@ const teamMembers = [
     img: "example-4.jpg",
     linkedin: "https://linkedin.com/in/johndoe",
     instagram: "https://instagram.com/johndoe",
+    bio: "John is a creative UI/UX designer with a keen eye for detail. He has been designing user-centric experiences since 2017.",
   },
   
 ];

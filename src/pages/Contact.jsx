@@ -204,24 +204,24 @@ const Contact = () => {
             <input
               type="text"
               placeholder={contact.form.namePlaceholder}
-              className="w-full px-6 py-4 rounded-lg border  focus:outline-none focus:ring-4"
+              className="w-full px-6 py-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-emerald-300"
               required
             />
             <input
               type="email"
               placeholder={contact.form.emailPlaceholder}
-              className="w-full px-6 py-4 rounded-lg border  focus:outline-none focus:ring-4"
+              className="w-full px-6 py-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-emerald-300"
               required
             />
             <input
               type="tel"
               placeholder={contact.form.phonePlaceholder}
-              className="w-full px-6 py-4 rounded-lg border  focus:outline-none focus:ring-4"
+              className="w-full px-6 py-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-emerald-300"
             />
             <textarea
               rows="6"
               placeholder={contact.form.messagePlaceholder}
-              className="w-full px-6 py-4 rounded-lg border  focus:outline-none focus:ring-4"
+              className="w-full px-6 py-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-emerald-300"
               required
             ></textarea>
             <button
