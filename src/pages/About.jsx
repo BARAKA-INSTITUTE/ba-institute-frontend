@@ -168,7 +168,7 @@ const About = () => {
         className="sided-about-us flex flex-col md:flex-row items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto   mt-10"
       >
         <div className="about-us text-part flex-1 flex flex-col justify-center space-y-4">
-          <h1 className="font-serif text-3xl font-bold ">Biz Haqimizda</h1>
+          <h1 className="font-serif text-3xl font-bold ">About Us</h1>
           {aboutUs.find((item) => item.id === 1)?.text && (
             <p className="text-lg leading-relaxed ">
               {aboutUs.find((item) => item.id === 1)?.text}
@@ -202,7 +202,7 @@ const About = () => {
         </div>
 
         <div className="about-us text-part flex-1 flex flex-col justify-center space-y-4">
-          <h1 className="font-serif text-3xl font-bold ">Bizning vazifamiz</h1>
+          <h1 className="font-serif text-3xl font-bold ">Our Mission</h1>
           {aboutUs.find((item) => item.id === 4)?.text && (
             <p className="text-lg leading-relaxed ">
               {aboutUs.find((item) => item.id === 4)?.text}
@@ -211,10 +211,10 @@ const About = () => {
         </div>
       </div>
       {/* our team members  */}
-      <div ref={teamSectionRef} className="our-team-section  py-16 mt-10 ">
+      <div ref={teamSectionRef} className="our-team-section py-16 mt-10 mb-10">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-serif text-4xl font-bold text-center  mb-12">
-            Bizning Jamoamiz
+            Our Team
           </h2>
 
           <div className="relative">
@@ -228,7 +228,7 @@ const About = () => {
                   <div
                     key={member.id}
                     ref={(el) => (teamCardsRef.current[idx] = el)}
-                    className="cursor-pointer w-full flex-shrink-0 px-4 sm:w-1/2 md:w-1/3 lg:w-1/4 h-[500px] sm:h-[470px]"
+                    className="cursor-pointer w-full flex-shrink-0 px-4 sm:w-1/2 md:w-1/3 lg:w-1/4 h-[420px] sm:h-[420px]"
                     onMouseEnter={() => handleMouseEnter(idx)}
                     onMouseLeave={() => handleMouseLeave(idx)}
                     onTouchStart={() => handleTouchStartCard(idx)}
@@ -245,7 +245,7 @@ const About = () => {
                       }}
                     >
                       {/* Front of the card */}
-                      <div className="absolute inset-0 backface-hidden bg-white rounded-xl overflow-hidden flex flex-col h-full shadow-lg">
+                      <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden flex flex-col h-full shadow-2xl bg-white/20 backdrop-blur-xl border border-white/40">
                         <img
                           src={member.img}
                           alt={member.name}
@@ -255,9 +255,28 @@ const About = () => {
                           <h3 className="text-2xl font-semibold text-emerald-600 text-center">
                             {member.name}
                           </h3>
-                          <p className="text-gray-700 text-center mt-2">
+                          <p className=" text-center mt-2">
                             {member.role}
                           </p>
+
+                        
+                        </div>
+                      </div>
+
+                      {/* Back of the card */}
+                      <div
+                        className="absolute inset-0 backface-hidden rounded-xl overflow-hidden flex flex-col p-8 rotate-y-180 bg-emerald-900/80 backdrop-blur-xl border border-emerald-300/30 text-white shadow-2xl"
+                        style={{ backfaceVisibility: "hidden" }}
+                      >
+                        <h3 className="text-2xl font-bold text-center mb-4">
+                          {member.name}
+                        </h3>
+                        <p className="text-lg text-center italic mb-6">
+                          {member.role}
+                        </p>
+                        <p className="text-base leading-relaxed flex-grow">
+                          {member.bio}
+                        </p>
 
                           <div className="flex justify-center gap-6 mt-6">
                             {member.linkedin && (
@@ -265,8 +284,8 @@ const About = () => {
                                 href={member.linkedin}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                onClick={(e) => e.stopPropagation()} // Prevent flip when clicking links
-                                className="text-emerald-700 hover:text-emerald-900 transition-colors"
+                                onClick={(e) => e.stopPropagation()} 
+                                className=" transition-colors"
                               >
                                 <svg
                                   className="w-6 h-6"
@@ -284,7 +303,7 @@ const About = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 onClick={(e) => e.stopPropagation()}
-                                className="text-emerald-700 hover:text-emerald-900 transition-colors"
+                                className=" transition-colors"
                               >
                                 <svg
                                   className="w-6 h-6"
@@ -296,23 +315,6 @@ const About = () => {
                               </a>
                             )}
                           </div>
-                        </div>
-                      </div>
-
-                      {/* Back of the card */}
-                      <div
-                        className="absolute inset-0 backface-hidden bg-emerald-800 text-white rounded-xl overflow-hidden flex flex-col p-8 rotate-y-180"
-                        style={{ backfaceVisibility: "hidden" }}
-                      >
-                        <h3 className="text-2xl font-bold text-center mb-4">
-                          {member.name}
-                        </h3>
-                        <p className="text-lg text-center italic mb-6">
-                          {member.role}
-                        </p>
-                        <p className="text-base leading-relaxed flex-grow">
-                          {member.bio}
-                        </p>
                    
                       </div>
                     </div>

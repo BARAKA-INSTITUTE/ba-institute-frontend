@@ -4,7 +4,37 @@ body {
     background-color: white;
 }
 
+:root,
+body {
+    overflow-x: hidden;
+}
+
 body.dark {
     color: white;
     background-color: #1a202c;
+}
+
+/* Ensure form fields align with theme toggle */
+body.light input,
+body.light textarea {
+    background-color: #ffffff !important;
+    color: #111827 !important;
+    border-color: #e5e7eb !important;
+}
+
+body.dark input,
+body.dark textarea {
+    background-color: #0f172a !important;
+    color: #e2e8f0 !important;
+    border-color: #334155 !important;
+}
+
+body.light input::placeholder,
+body.light textarea::placeholder {
+    color: #6b7280 !important;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+    color: #cbd5e1 !important;
 }

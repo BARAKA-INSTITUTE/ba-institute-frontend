@@ -1,9 +1,9 @@
 const navLinks = [
-    { id: 1, name: 'Bosh Sahifa', targetId: "home" },
-    { id: 2, name: 'Haqida', targetId: "about" },
-    { id: 3, name: 'Xizmatlar', targetId: "services" },
-    { id: 4, name: 'Aloqa', targetId: "contact" },
-    { id: 5, name: ''},
+  { id: 1, name: 'Home', targetId: "home" },
+  { id: 2, name: 'About', targetId: "about" },
+  { id: 3, name: 'Services', targetId: "services" },
+  { id: 4, name: 'Contact', targetId: "contact" },
+  { id: 5, name: ''},
     
 ]
 
@@ -28,10 +28,10 @@ const socialLinks = [
 ];
 
 const aboutUs = [
-    {id:1, text: "Baraka Institute - bu zamonaviy ta'lim markazi bo'lib, unda talabalar va mutaxassislar uchun keng ko'lamli kurslar va treninglar taqdim etiladi. Bizning maqsadimiz - har bir insonning bilim va ko'nikmalarini oshirishga yordam berishdir."},
-    {id:2, img: "about-us-header.jpg"},
-    {id:3, img: "our-mission-about.jpg"},
-    {id:4, text: "Bizning missiyamiz - sifatli ta'limni har bir inson uchun qulay va arzon qilishdir. Biz ilg'or texnologiyalar va innovatsion o'quv metodlarini qo'llab-quvvatlaymiz, shuningdek, talabalarimizga amaliy ko'nikmalarni rivojlantirishga yordam beramiz."},
+  {id:1, text: "Baraka Institute is a modern educational center that offers a wide range of courses and trainings for students and professionals. Our goal is to help everyone enhance their knowledge and skills."},
+  {id:2, img: "about-us-header.jpg"},
+  {id:3, img: "our-mission-about.jpg"},
+  {id:4, text: "Our mission is to make quality education accessible and affordable for everyone. We support advanced technologies and innovative learning methods and help our students develop practical skills."},
 ]
 
 const teamMembers = [
@@ -77,66 +77,66 @@ const teamMembers = [
 
  const services = {
   intro: {
-    title: "Bizning Xizmatlarimiz",
+    title: "Our Services",
     text1:
-      "Biz kompaniyalarga professional biznes tahlilchi xizmatlarini taqdim etamiz. Tajribali mutaxassislarimiz sizning biznes jarayonlaringizni optimallashtirish, talablarni aniqlash va samarali yechimlarni joriy qilishda yordam beradi.",
+      "We provide professional business analysis services for companies. Our experienced specialists help optimize your business processes, identify requirements, and implement effective solutions.",
     text2:
-      "Bizning maqsadimiz — sizning biznesingizni raqobatbardosh qilish va samaradorlikni oshirish orqali uzoq muddatli muvaffaqiyatga erishishga yordam berish.",
+      "Our aim is to help your business achieve long-term success by boosting competitiveness and increasing efficiency.",
     img:
       "services-1.jpg",
   },
 
   hiring: {
-    title: "Kompaniyalar uchun Biznes Tahlilchi Yollash",
+    title: "Hire Business Analysts for Companies",
     description:
-      "Biz sizning kompaniyangiz uchun tajribali biznes tahlilchilarni tanlab beramiz va ishga joylashtiramiz. Mutaxassislarimiz loyihalaringizni boshqarish, talablarni aniqlash va samarali yechimlarni ishlab chiqishda yordam beradi.",
+      "We select and place experienced business analysts for your company. Our specialists help manage your projects, gather requirements, and develop effective solutions.",
     features: [
-      "Vaqtinchalik yoki doimiy yollash",
-      "Mutaxassislarning malakasini tekshirish",
-      "Loyiha boshidan oxirigacha qo'llab-quvvatlash",
+      "Temporary or permanent hiring",
+      "Qualification screening of specialists",
+      "End-to-end project support",
     ],
     img:
       "services-2.jpg",
   },
 
   consulting: {
-    title: "Maslahat va Konsalting Xizmatlari",
+    title: "Consulting Services",
     description:
-      "Biznes jarayonlarini tahlil qilish, strategiya ishlab chiqish va optimallashtirish bo'yicha professional maslahatlar beramiz.",
+      "We provide professional consulting on business process analysis, strategy development, and optimization.",
     features: [
-      "Biznes jarayonlarini audit qilish",
-      "Raqobat tahlili va strategiya",
-      "IT yechimlarni integratsiya qilish",
+      "Business process audits",
+      "Competitive analysis and strategy",
+      "Integration of IT solutions",
     ],
     img:
       "services-3.avif",
   },
 
   education: {
-    title: "Biznes Tahlilchilar uchun Ta'limiy Video Kurslar",
+    title: "Educational Video Courses for Business Analysts",
     description:
-      "Biznes tahlil sohasida yangi boshlovchilar va professionalar uchun maxsus ta'limiy video kurslar va treninglar taklif etamiz.",
+      "We offer specialized educational video courses and trainings for beginners and professionals in business analysis.",
     features: [
-      "BPMN, UML va boshqa modellar",
-      "Talablar yig'ish texnikalari",
-      "Real loyihalarda amaliyot",
+      "BPMN, UML and other models",
+      "Requirements gathering techniques",
+      "Hands-on practice on real projects",
     ],
     img:
       "services-4.webp",
   },
 
   modeling: {
-    title: "Biznes Jarayonlarni Modellashtirish",
+    title: "Business Process Modeling",
     description:
-      "BPMN va boshqa standartlar asosida jarayonlarni vizual modellashtirish va optimallashtirish xizmatlari.",
+      "Visual modeling and optimization of processes based on BPMN and other standards.",
     img:
       "services-5.png",
   },
 
   workshops: {
-    title: "Talablar Yig'ish Workshop'lari",
+    title: "Requirements Gathering Workshops",
     description:
-      "Stakeholder'lar bilan intervyu, workshop va brainstorming orqali aniq va to'liq talablarni yig'ish.",
+      "Collect clear and complete requirements through stakeholder interviews, workshops, and brainstorming.",
     img:
       "services-6.avif",
   },
@@ -144,23 +144,23 @@ const teamMembers = [
 
 const contact = {
   hero: {
-    title: "Bog'lanish",
-    subtitle: "Savollaringiz bormi? Biz bilan bog'laning – sizga yordam berishga tayyormiz!",
+    title: "Contact",
+    subtitle: "Have questions? Contact us — we're ready to help!",
     bgImage: "contact.jpg",
   },
 
   info: {
     phone: "+998 99 123 45 67",
     email: "info@example.uz",
-    address: "Toshkent shahri, Mirzo Ulug'bek tumani, Buyuk Ipak Yo'li ko'chasi, 123-uy",
+    address: "Tashkent city, Mirzo Ulug'bek district, Buyuk Ipak Yo'li street, House 123",
   },
 
   form: {
-    namePlaceholder: "Ismingiz",
-    emailPlaceholder: "Email manzilingiz",
-    phonePlaceholder: "Telefon raqamingiz",
-    messagePlaceholder: "Xabaringizni yozing...",
-    submitButton: "Xabar yuborish",
+    namePlaceholder: "Your name",
+    emailPlaceholder: "Your email",
+    phonePlaceholder: "Your phone number",
+    messagePlaceholder: "Write your message...",
+    submitButton: "Send Message",
   },
 
   mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.367631148498!2d69.287963315432!3d41.3110819792705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38ae8b50a3f2f2a5%3A0x4f5c1b8e3d3e3e3e!2sTashkent%2C%20Uzbekistan!5e0!3m2!1sen!2sus!4v1734270000000", // Replace with your exact location
@@ -169,23 +169,23 @@ const contact = {
  const testimonials = [
   {
     name: "Azizbek Karimov",
-    role: "IT Direktori, UzAuto Motors",
+    role: "IT Director, UzAuto Motors",
     quote:
-      "Ushbu jamoa bizning biznes jarayonlarimizni to'liq optimallashtirdi. Talablar yig'ish va modellashtirish bo'yicha professional yondashuvlari tufayli loyihamiz muddatidan oldin yakunlandi.",
+      "This team completely optimized our business processes. Thanks to their professional approach to requirements gathering and modeling, our project was completed ahead of schedule.",
     img: "https://media.istockphoto.com/id/2004891062/photo/happy-mid-aged-business-woman-manager-handshaking-greeting-client-in-office.jpg?s=612x612&w=0&k=20&c=kP6DSKhIVMO-m27l4nCmvpwzaKvzV8ncPT9elotc4QI=",
   },
   {
     name: "Dilnoza Salimova",
-    role: "Loyiha Menejeri, Kapitalbank",
+    role: "Project Manager, Kapitalbank",
     quote:
-      "Konsalting xizmatlari va ta'limiy kurslar bizning ichki tahlilchilar jamoasini yangi darajaga olib chiqdi. Endi biz o'zimiz murakkab loyihalarni muvaffaqiyatli boshqara olamiz.",
+      "The consulting services and educational courses took our internal analysts' team to a new level. Now we can successfully manage complex projects ourselves.",
     img: "https://media.istockphoto.com/id/1591572504/photo/cheerful-businesswomen-shaking-hands-in-meeting-room.jpg?s=612x612&w=0&k=20&c=mo5VjVyA-t4ydS6ZjJVxaUSi0v9KVbJV_Go5EOF_B8M=",
   },
   {
     name: "Rustam Toshpulatov",
     role: "CEO, TechSolutions LLC",
     quote:
-      "Biznes tahlilchi yollash xizmati orqali biz ajoyib mutaxassisni topdik. U bir oy ichida kompaniyamiz samaradorligini 30% ga oshirdi. Rahmat!",
+      "Through the business analyst hiring service, we found an excellent specialist. Within a month, they increased our company's efficiency by 30%. Thank you!",
     img: "https://media.istockphoto.com/id/1824279555/photo/happy-insurance-agent-talking-to-her-customers-in-the-office.jpg?s=612x612&w=0&k=20&c=yc0_-ofn4XzXpfRFyGYlUgvqigBPBV4nq8I9eIjTHOI=",
   },
 ];

@@ -147,7 +147,7 @@ const Contact = () => {
       >
         <div className="space-y-8">
           <h2 className="font-serif text-4xl font-bold  dark:">
-            Biz bilan bog'laning
+            Get in Touch
           </h2>
 
           <div
@@ -160,7 +160,7 @@ const Contact = () => {
               </svg>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold  dark:">Telefon</h3>
+              <h3 className="text-2xl font-semibold  dark:">Phone</h3>
               <p className="text-lg  dark: mt-2">{contact.info.phone}</p>
             </div>
           </div>
@@ -190,7 +190,7 @@ const Contact = () => {
               </svg>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold  dark:">Manzil</h3>
+              <h3 className="text-2xl font-semibold  dark:">Address</h3>
               <p className="text-lg  dark: mt-2">{contact.info.address}</p>
             </div>
           </div>
@@ -198,7 +198,7 @@ const Contact = () => {
 
         <div className=" rounded-xl shadow-lg p-8">
           <h2 className="font-serif text-4xl font-bold  dark: mb-8">
-            Xabar yuborish
+            Send a Message
           </h2>
           <form className="space-y-6">
             <input
@@ -221,12 +221,12 @@ const Contact = () => {
             <textarea
               rows="6"
               placeholder={contact.form.messagePlaceholder}
-              className="w-full px-6 py-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-emerald-300"
+              className="w-full px-6 py-4 rounded-lg border border-gray-200 dark:border-gray-700  dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-emerald-300"
               required
             ></textarea>
             <button
               type="submit"
-              className="w-full bg-white text-indigo-700 cursor-pointer font-bold py-4 rounded-lg hover:scale-105 transition duration-300 shadow-lg"
+              className="w-full bg-white cursor-pointer font-bold py-4 rounded-lg hover:scale-105 transition duration-300 shadow-lg bg-white/25 border border-white/50 backdrop-blur-md backdrop-saturate-150 hover:bg-white/25 hover:border-white/50"
             >
               {contact.form.submitButton}
             </button>
@@ -246,7 +246,7 @@ const Contact = () => {
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          title="Bizning joylashuvimiz"
+          title="Our Location"
         ></iframe>
       </div>
     </>

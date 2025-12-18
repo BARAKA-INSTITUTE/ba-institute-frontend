@@ -18,8 +18,10 @@ function App() {
   return (
     <>
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
-      <Home />
-      <Footer isDarkMode={isDarkMode} />
+      <div className="pt-20">
+        <Home />
+        <Footer isDarkMode={isDarkMode} />
+      </div>
     </>
   );
 }

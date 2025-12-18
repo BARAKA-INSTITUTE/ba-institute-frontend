@@ -104,7 +104,7 @@ const Testimonials = () => {
 
       <div className="relative max-w-7xl mx-auto px-6">
         <h2 className="font-serif text-4xl md:text-5xl font-bold text-center  dark: mb-16">
-          Mijozlarimiz Fikri
+          What Our Clients Say
         </h2>
 
         <div className="relative">

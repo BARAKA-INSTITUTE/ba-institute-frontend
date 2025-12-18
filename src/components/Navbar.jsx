@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Sidebar from "./Sidebar";
 import { navLinks } from "@utils/constants";
 
 const Navbar = ({ isDarkMode, setIsDarkMode }) => {
-  const navBg = isDarkMode
-    ? "bg-gray-900 text-white"
-    : "bg-gray-100 text-gray-900";
+  const navSurface = isDarkMode
+    ? "text-white bg-slate-900/70 border-white/10 shadow-lg"
+    : "text-gray-900 bg-white/70 border-white/50 shadow-lg";
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle("overflow-hidden", open);
+    return () => document.body.classList.remove("overflow-hidden");
+  }, [open]);
 
   const handleScroll = (id) => {
     const element = document.getElementById(id);
@@ -15,7 +20,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
 
   return (
     <nav
-      className={`${navBg} sticky top-0 z-50 px-6 py-4 flex items-center justify-between shadow-md transition-colors duration-300 border-b`}
+      className={`${navSurface} fixed top-0 left-0 right-0 z-50 w-full px-6 py-4 flex items-center justify-between transition-colors duration-300 border-b backdrop-blur-xl backdrop-saturate-150`}
     >
       <div
         className="flex items-center space-x-3 cursor-pointer"
