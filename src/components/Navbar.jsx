@@ -92,7 +92,9 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
         })}
       </ul>
 
-      <LanguageSwitcher />
+      <div className="hidden md:block">
+        <LanguageSwitcher />
+      </div>
 
       <button
         onClick={() => setOpen(true)}
