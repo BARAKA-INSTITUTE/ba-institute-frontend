@@ -1,7 +1,9 @@
 import { navLinks, socialLinks } from "@utils/constants";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 const Footer = ({ isDarkMode }) => {
+  const { t } = useTranslation();
   const footerBg = isDarkMode
     ? "bg-gray-900 text-white"
     : "bg-gray-100 text-gray-900";
@@ -14,7 +16,7 @@ const Footer = ({ isDarkMode }) => {
               key={id}
               className="cursor-pointer hover:text-emerald-500 transition-colors duration-200"
             >
-              {name}
+              {id !== 5 ? t(name.toLowerCase()) : null}
             </li>
           ))}
         </ul>
@@ -41,8 +43,7 @@ const Footer = ({ isDarkMode }) => {
             isDarkMode ? "text-gray-400" : "text-black"
           }`}
         >
-          &copy; {new Date().getFullYear()} Baraka Institute. All rights
-          reserved.
+          {t('footer.copyright', { year: new Date().getFullYear() })}
         </p>
       </div>
     </footer>

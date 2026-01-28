@@ -168,6 +168,7 @@ const contact = {
 
  const testimonials = [
   {
+    id: 1,
     name: "Azizbek Karimov",
     role: "IT Director, UzAuto Motors",
     quote:
@@ -175,6 +176,7 @@ const contact = {
     img: "https://media.istockphoto.com/id/2004891062/photo/happy-mid-aged-business-woman-manager-handshaking-greeting-client-in-office.jpg?s=612x612&w=0&k=20&c=kP6DSKhIVMO-m27l4nCmvpwzaKvzV8ncPT9elotc4QI=",
   },
   {
+    id: 2,
     name: "Dilnoza Salimova",
     role: "Project Manager, Kapitalbank",
     quote:
@@ -182,6 +184,7 @@ const contact = {
     img: "https://media.istockphoto.com/id/1591572504/photo/cheerful-businesswomen-shaking-hands-in-meeting-room.jpg?s=612x612&w=0&k=20&c=mo5VjVyA-t4ydS6ZjJVxaUSi0v9KVbJV_Go5EOF_B8M=",
   },
   {
+    id: 3,
     name: "Rustam Toshpulatov",
     role: "CEO, TechSolutions LLC",
     quote:

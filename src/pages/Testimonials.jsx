@@ -1,4 +1,5 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { testimonials } from "@utils/constants";
@@ -6,6 +7,7 @@ import { testimonials } from "@utils/constants";
 gsap.registerPlugin(ScrollTrigger);
 
 const Testimonials = () => {
+  const { t } = useTranslation();
   const testimonialsSectionRef = useRef(null);
   const testimonialItemsRef = useRef([]);
 
@@ -14,9 +16,9 @@ const Testimonials = () => {
 
   const maxIndex = Math.max(0, testimonials.length - 1);
 
-  const next = () => {
+  const next = useCallback(() => {
     setCurrentIndex((prev) => (prev < maxIndex ? prev + 1 : 0));
-  };
+  }, [maxIndex]);
 
   const prev = () => {
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : maxIndex));
@@ -25,7 +27,7 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(next, 7000);
     return () => clearInterval(interval);
-  }, [maxIndex]);
+  }, [maxIndex, next]);
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -104,7 +106,7 @@ const Testimonials = () => {
 
       <div className="relative max-w-7xl mx-auto px-6">
         <h2 className="font-serif text-4xl md:text-5xl font-bold text-center  dark: mb-16">
-          What Our Clients Say
+          {t('testimonials')}
         </h2>
 
         <div className="relative">
@@ -126,7 +128,7 @@ const Testimonials = () => {
                         <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-emerald-400 shadow-2xl">
                           <img
                             src={testimonial.img}
-                            alt={testimonial.name}
+                            alt={t(`testimonialsContent.${testimonial.id}.name`)}
                             className="w-full h-full object-cover"
                           />
                         </div>
@@ -137,13 +139,13 @@ const Testimonials = () => {
                     <div className=" flex flex-col justify-center">
                       <div className="text-7xl md:text-9xl font-serif text-emerald-300 mb-6">"</div>
                       <p className="text-xl md:text-2xl leading-relaxed /90 mb-10">
-                        {testimonial.quote}
+                        {t(`testimonialsContent.${testimonial.id}.quote`)}
                       </p>
                       <div>
                         <h3 className="text-2xl md:text-3xl font-bold ">
-                          {testimonial.name}
+                          {t(`testimonialsContent.${testimonial.id}.name`)}
                         </h3>
-                        <p className="text-lg text-emerald-300 mt-2">{testimonial.role}</p>
+                        <p className="text-lg text-emerald-300 mt-2">{t(`testimonialsContent.${testimonial.id}.role`)}</p>
                       </div>
                     </div>
                   </div>

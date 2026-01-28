@@ -1,11 +1,13 @@
 import { aboutUs, teamMembers } from "@utils/constants";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const About = () => {
+const About = ({ isDarkMode }) => {
+  const { t } = useTranslation();
   const [currentIndex, setCurrentIndex] = useState(0);
   const aboutSectionRef = useRef(null);
   const missionSectionRef = useRef(null);
@@ -39,11 +41,11 @@ const About = () => {
   const visibleCount = getVisibleCount();
   const maxIndex = Math.max(0, teamMembers.length - visibleCount);
 
-  const next = () => {
+  const next = useCallback(() => {
     if (currentIndex < maxIndex) {
       setCurrentIndex(currentIndex + 1);
     }
-  };
+  }, [currentIndex, maxIndex]);
 
   const prev = () => {
     if (currentIndex > 0) {
@@ -56,7 +58,7 @@ const About = () => {
       const interval = setInterval(next, 5000);
       return () => clearInterval(interval);
     }
-  }, [currentIndex, teamMembers.length, visibleCount]);
+  }, [visibleCount, next]);
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -168,15 +170,13 @@ const About = () => {
         className="sided-about-us flex flex-col md:flex-row items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto   mt-10"
       >
         <div className="about-us text-part flex-1 flex flex-col justify-center space-y-4">
-          <h1 className="font-serif text-3xl font-bold ">About Us</h1>
-          {aboutUs.find((item) => item.id === 1)?.text && (
-            <p className="text-lg leading-relaxed ">
-              {aboutUs.find((item) => item.id === 1)?.text}
-            </p>
-          )}
+          <h1 className="font-serif text-3xl font-bold ">{t('aboutUs.title')}</h1>
+          <p className="text-lg leading-relaxed ">
+            {t('aboutUs.description')}
+          </p>
         </div>
 
-        <div className="img-part flex-1 rounded-xl overflow-hidden border-2 border-gray-300 hover:scale-105 cursor-pointer transition-transform duration-300 shadow-lg w-full h-64 md:h-auto">
+        <div className={`img-part flex-1 rounded-xl overflow-hidden border-2 hover:scale-105 cursor-pointer transition-transform duration-300 shadow-lg w-full h-64 md:h-auto ${isDarkMode ? 'border-slate-600' : 'border-gray-300'}`}>
           {aboutUs.find((item) => item.id === 2)?.img && (
             <img
               src={aboutUs.find((item) => item.id === 2)?.img}
@@ -191,7 +191,7 @@ const About = () => {
         ref={missionSectionRef}
         className="sided-our-mission flex flex-col md:flex-row items-center md:items-stretch gap-8 p-6 max-w-7xl mx-auto  mt-10"
       >
-        <div className="img-part rounded-xl flex-1 overflow-hidden border-2 border-gray-300 hover:scale-105 cursor-pointer transition-transform duration-300 shadow-lg w-full h-64 md:h-auto">
+        <div className={`img-part rounded-xl flex-1 overflow-hidden border-2 hover:scale-105 cursor-pointer transition-transform duration-300 shadow-lg w-full h-64 md:h-auto ${isDarkMode ? 'border-slate-600' : 'border-gray-300'}`}>
           {aboutUs.find((item) => item.id === 3)?.img && (
             <img
               src={aboutUs.find((item) => item.id === 3)?.img}
@@ -202,19 +202,17 @@ const About = () => {
         </div>
 
         <div className="about-us text-part flex-1 flex flex-col justify-center space-y-4">
-          <h1 className="font-serif text-3xl font-bold ">Our Mission</h1>
-          {aboutUs.find((item) => item.id === 4)?.text && (
-            <p className="text-lg leading-relaxed ">
-              {aboutUs.find((item) => item.id === 4)?.text}
-            </p>
-          )}
+          <h1 className="font-serif text-3xl font-bold ">{t('aboutUs.missionTitle')}</h1>
+          <p className="text-lg leading-relaxed ">
+            {t('aboutUs.missionDescription')}
+          </p>
         </div>
       </div>
       {/* our team members  */}
       <div ref={teamSectionRef} className="our-team-section py-16 mt-10 mb-10">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="font-serif text-4xl font-bold text-center  mb-12">
-            Our Team
+            {t('aboutUs.teamTitle')}
           </h2>
 
           <div className="relative">
@@ -253,13 +251,13 @@ const About = () => {
                         />
                         <div className="p-6 flex flex-col flex-grow">
                           <h3 className="text-2xl font-semibold text-emerald-600 text-center">
-                            {member.name}
+                            {t(`teamMembers.${member.id}.name`)}
                           </h3>
                           <p className=" text-center mt-2">
-                            {member.role}
+                            {t(`teamMembers.${member.id}.role`)}
                           </p>
 
-                        
+
                         </div>
                       </div>
 
@@ -269,13 +267,13 @@ const About = () => {
                         style={{ backfaceVisibility: "hidden" }}
                       >
                         <h3 className="text-2xl font-bold text-center mb-4">
-                          {member.name}
+                          {t(`teamMembers.${member.id}.name`)}
                         </h3>
                         <p className="text-lg text-center italic mb-6">
-                          {member.role}
+                          {t(`teamMembers.${member.id}.role`)}
                         </p>
                         <p className="text-base leading-relaxed flex-grow">
-                          {member.bio}
+                          {t(`teamMembers.${member.id}.bio`)}
                         </p>
 
                           <div className="flex justify-center gap-6 mt-6">

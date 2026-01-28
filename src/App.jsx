@@ -19,7 +19,7 @@ function App() {
     <>
       <Navbar isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
       <div className="pt-20">
-        <Home />
+        <Home isDarkMode={isDarkMode} />
         <Footer isDarkMode={isDarkMode} />
       </div>
     </>

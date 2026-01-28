@@ -1,0 +1,135 @@
+{
+  "welcome": "Welcome",
+  "home": "Home",
+  "about": "About",
+  "services": "Services",
+  "contact": "Contact",
+  "testimonials": "Testimonials",
+  "language": "Language",
+  "aboutUs": {
+    "title": "About Us",
+    "description": "Baraka Institute is a modern educational center that offers a wide range of courses and trainings for students and professionals. Our goal is to help everyone enhance their knowledge and skills.",
+    "missionTitle": "Our Mission",
+    "missionDescription": "Our mission is to make quality education accessible and affordable for everyone. We support advanced technologies and innovative learning methods and help our students develop practical skills.",
+    "teamTitle": "Our Team"
+  },
+  "teamMembers": {
+    "1": {
+      "name": "Tom Smith",
+      "role": "Founder & CEO",
+      "bio": "John founded the company in 2015 with a vision to revolutionize the industry. He has over 15 years of experience in leadership and innovation."
+    },
+    "2": {
+      "name": "Ali Veli",
+      "role": "Frontend Developer",
+      "bio": "Ali is a skilled frontend developer with a passion for creating intuitive user interfaces. He has been with the company since 2018."
+    },
+    "3": {
+      "name": "Sara Ahmed",
+      "role": "Backend Developer",
+      "bio": "Sara specializes in backend development and database management. She joined the team in 2019 and has been instrumental in building robust systems."
+    },
+    "4": {
+      "name": "John Doe",
+      "role": "UI/UX Designer",
+      "bio": "John is a creative UI/UX designer with a keen eye for detail. He has been designing user-centric experiences since 2017."
+    }
+  },
+  "servicesContent": {
+    "title": "Our Services",
+    "intro": {
+      "text1": "We provide professional business analysis services for companies. Our experienced specialists help optimize your business processes, identify requirements, and implement effective solutions.",
+      "text2": "Our aim is to help your business achieve long-term success by boosting competitiveness and increasing efficiency."
+    },
+    "hiring": {
+      "title": "Hire Business Analysts for Companies",
+      "description": "We select and place experienced business analysts for your company. Our specialists help manage your projects, gather requirements, and develop effective solutions.",
+      "features": [
+        "Temporary or permanent hiring",
+        "Qualification screening of specialists",
+        "End-to-end project support"
+      ]
+    },
+    "consulting": {
+      "title": "Consulting Services",
+      "description": "We provide professional consulting on business process analysis, strategy development, and optimization.",
+      "features": [
+        "Business process audits",
+        "Competitive analysis and strategy",
+        "Integration of IT solutions"
+      ]
+    },
+    "education": {
+      "title": "Educational Video Courses for Business Analysts",
+      "description": "We offer specialized educational video courses and trainings for beginners and professionals in business analysis.",
+      "features": [
+        "BPMN, UML and other models",
+        "Requirements gathering techniques",
+        "Hands-on practice on real projects"
+      ]
+    },
+    "modeling": {
+      "title": "Business Process Modeling",
+      "description": "Visual modeling and optimization of processes based on BPMN and other standards."
+    },
+    "workshops": {
+      "title": "Requirements Gathering Workshops",
+      "description": "Collect clear and complete requirements through stakeholder interviews, workshops, and brainstorming."
+    }
+  },
+  "contactContent": {
+    "title": "Contact",
+    "subtitle": "Have questions? Contact us — we're ready to help!",
+    "getInTouch": "Get in Touch",
+    "sendMessage": "Send a Message",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "info": {
+      "phone": "+998 99 123 45 67",
+      "email": "info@example.uz",
+      "address": "Tashkent city, Mirzo Ulug'bek district, Buyuk Ipak Yo'li street, House 123"
+    },
+    "form": {
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email",
+      "phonePlaceholder": "Your phone number",
+      "messagePlaceholder": "Write your message...",
+      "submitButton": "Send Message"
+    }
+  },
+  "testimonialsContent": {
+    "1": {
+      "name": "Azizbek Karimov",
+      "role": "IT Director, UzAuto Motors",
+      "quote": "This team completely optimized our business processes. Thanks to their professional approach to requirements gathering and modeling, our project was completed ahead of schedule."
+    },
+    "2": {
+      "name": "Dilnoza Salimova",
+      "role": "Project Manager, Kapitalbank",
+      "quote": "The consulting services and educational courses took our internal analysts' team to a new level. Now we can successfully manage complex projects ourselves."
+    },
+    "3": {
+      "name": "Rustam Toshpulatov",
+      "role": "CEO, TechSolutions LLC",
+      "quote": "Through the business analyst hiring service, we found an excellent specialist. Within a month, they increased our company's efficiency by 30%. Thank you!"
+    }
+  },
+
+  "footer": {
+    "links": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "contact": "Contact Us"
+    },
+    "copyright": "© {{year}} Baraka Institute. All rights reserved."
+  },
+
+
+  "hero": {
+    "title": "Unlock Insights with Data-Driven Solutions",
+    "subtitle": "Transform your business decisions with practical analytics and smart solutions.",
+    "button": "Get Started"
+  },
+  "loading": "Loading..."
+}

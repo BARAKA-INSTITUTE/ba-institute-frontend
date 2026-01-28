@@ -1,0 +1,121 @@
+/* ThemeToggle.css */
+.theme-toggle {
+  position: relative;
+  width: 3.5rem;
+  height: 1.75rem;
+  border-radius: 0.875rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+  user-select: none;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-color: rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.theme-toggle:active {
+  transform: scale(0.95);
+}
+
+.toggle-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  transition: background 0.3s ease-in-out;
+}
+
+.theme-toggle.dark .toggle-track {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: calc(1.75rem - 4px);
+  height: calc(1.75rem - 4px);
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle.dark .toggle-thumb {
+  transform: translateX(calc(3.5rem - 1.75rem));
+}
+
+.icon {
+  font-size: 0.875rem;
+  line-height: 1;
+  transition: transform 0.3s ease-in-out;
+}
+
+.theme-toggle:hover .icon {
+  transform: rotate(15deg);
+}
+
+.theme-toggle.dark:hover .icon {
+  transform: rotate(-15deg);
+}
+
+/* Dark mode adjustments */
+body.dark .theme-toggle {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+body.dark .theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 3rem;
+    height: 1.5rem;
+  }
+
+  .toggle-thumb {
+    width: calc(1.5rem - 4px);
+    height: calc(1.5rem - 4px);
+  }
+
+  .theme-toggle.dark .toggle-thumb {
+    transform: translateX(calc(3rem - 1.5rem));
+  }
+
+  .icon {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    width: 2.5rem;
+    height: 1.25rem;
+  }
+
+  .toggle-thumb {
+    width: calc(1.25rem - 4px);
+    height: calc(1.25rem - 4px);
+  }
+
+  .theme-toggle.dark .toggle-thumb {
+    transform: translateX(calc(2.5rem - 1.25rem));
+  }
+
+  .icon {
+    font-size: 0.625rem;
+  }
+}

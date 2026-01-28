@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, Suspense } from "react";
+import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -9,7 +10,8 @@ const Contact = React.lazy(() => import("./Contact"));
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Home = () => {
+const Home = ({ isDarkMode }) => {
+  const { t } = useTranslation();
   const titleRef = useRef(null);
   const textRef = useRef(null);
   const buttonRef = useRef(null);
@@ -43,44 +45,38 @@ const Home = () => {
     <>
       <section
         ref={heroSectionRef}
-        className="relative overflow-hidden rounded-2xl mt-8"
+        className="relative overflow-hidden rounded-2xl mt-8 heroBanner"
         id="home"
       >
-        <div className="absolute inset-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="max-w-xl">
             <h1 ref={titleRef} className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Unlock Insights with Data-Driven Solutions
+              {t('hero.title')}
             </h1>
             <p ref={textRef} className="text-lg sm:text-xl mb-8 opacity-90">
-              Transform your business decisions with practical analytics and smart solutions.
+              {t('hero.subtitle')}
             </p>
             <button
               ref={buttonRef}
-              className="font-bold px-8 py-4 rounded-xl shadow-2xl transition transform hover:scale-105 bg-white/25 cursor-pointer border border-white/50 backdrop-blur-md backdrop-saturate-150 hover:bg-white/25 hover:border-white/50"
+              className="font-bold px-8 py-4 rounded-xl shadow-2xl transition transform hover:scale-105 bg-emerald-500 text-white hover:bg-emerald-600 border border-emerald-400"
             >
-              Get Started
+              {t('hero.button')}
             </button>
           </div>
 
-          <div ref={imageRef} className="md:w-1/2 flex justify-center">
-            <img
-              src="hero-banner-main.jpg"
-              alt="Analytics dashboard"
-              className="w-full max-w-2xl drop-shadow-2xl rounded-xl"
-            />
-          </div>
+      
         </div>
       </section>
 
-      <Suspense fallback={<div className="py-20 text-center">Loading...</div>}>
+      <Suspense fallback={<div className="py-20 text-center">{t('loading')}</div>}>
         <section id="about">
-          <About />
+          <About isDarkMode={isDarkMode} />
         </section>
 
         <section id="services">
-          <Services />
+          <Services isDarkMode={isDarkMode} />
         </section>
 
         <section id="testimonials">

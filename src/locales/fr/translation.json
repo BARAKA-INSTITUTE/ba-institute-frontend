@@ -1,0 +1,132 @@
+{
+  "welcome": "Bienvenue",
+  "home": "Accueil",
+  "about": "À propos",
+  "services": "Services",
+  "contact": "Contact",
+  "testimonials": "Témoignages",
+  "language": "Langue",
+  "aboutUs": {
+    "title": "À propos de nous",
+    "description": "Baraka Institute est un centre éducatif moderne qui offre une large gamme de cours et de formations pour les étudiants et les professionnels. Notre objectif est d'aider chacun à améliorer ses connaissances et ses compétences.",
+    "missionTitle": "Notre Mission",
+    "missionDescription": "Notre mission est de rendre l'éducation de qualité accessible et abordable pour tous. Nous soutenons les technologies avancées et les méthodes d'apprentissage innovantes et aidons nos étudiants à développer des compétences pratiques.",
+    "teamTitle": "Notre Équipe"
+  },
+  "teamMembers": {
+    "1": {
+      "name": "Tom Smith",
+      "role": "Fondateur & PDG",
+      "bio": "John a fondé l'entreprise en 2015 avec une vision de révolutionner l'industrie. Il a plus de 15 ans d'expérience en leadership et innovation."
+    },
+    "2": {
+      "name": "Ali Veli",
+      "role": "Développeur Frontend",
+      "bio": "Ali est un développeur frontend qualifié passionné par la création d'interfaces utilisateur intuitives. Il est avec l'entreprise depuis 2018."
+    },
+    "3": {
+      "name": "Sara Ahmed",
+      "role": "Développeur Backend",
+      "bio": "Sara se spécialise dans le développement backend et la gestion des bases de données. Elle a rejoint l'équipe en 2019 et a été instrumentale dans la construction de systèmes robustes."
+    },
+    "4": {
+      "name": "John Doe",
+      "role": "Designer UI/UX",
+      "bio": "John est un designer UI/UX créatif avec un œil attentif aux détails. Il conçoit des expériences centrées sur l'utilisateur depuis 2017."
+    }
+  },
+  "servicesContent": {
+    "title": "Nos Services",
+    "intro": {
+      "text1": "Nous fournissons des services professionnels d'analyse d'affaires pour les entreprises. Nos spécialistes expérimentés aident à optimiser vos processus métier, à identifier les exigences et à mettre en œuvre des solutions efficaces.",
+      "text2": "Notre objectif est d'aider votre entreprise à atteindre un succès à long terme en augmentant la compétitivité et l'efficacité."
+    },
+    "hiring": {
+      "title": "Embaucher des Analystes d'Affaires pour les Entreprises",
+      "description": "Nous sélectionnons et plaçons des analystes d'affaires expérimentés pour votre entreprise. Nos spécialistes aident à gérer vos projets, à recueillir les exigences et à développer des solutions efficaces.",
+      "features": [
+        "Embauche temporaire ou permanente",
+        "Sélection des qualifications des spécialistes",
+        "Support de projet de bout en bout"
+      ]
+    },
+    "consulting": {
+      "title": "Services de Conseil",
+      "description": "Nous fournissons un conseil professionnel sur l'analyse des processus métier, le développement de stratégies et l'optimisation.",
+      "features": [
+        "Audits des processus métier",
+        "Analyse concurrentielle et stratégie",
+        "Intégration des solutions IT"
+      ]
+    },
+    "education": {
+      "title": "Cours Vidéo Éducatifs pour Analystes d'Affaires",
+      "description": "Nous offrons des cours vidéo éducatifs spécialisés et des formations pour les débutants et les professionnels en analyse d'affaires.",
+      "features": [
+        "BPMN, UML et autres modèles",
+        "Techniques de collecte des exigences",
+        "Pratique pratique sur des projets réels"
+      ]
+    },
+    "modeling": {
+      "title": "Modélisation des Processus Métier",
+      "description": "Modélisation visuelle et optimisation des processus basés sur BPMN et autres normes."
+    },
+    "workshops": {
+      "title": "Ateliers de Collecte des Exigences",
+      "description": "Recueillir des exigences claires et complètes grâce à des entretiens avec les parties prenantes, des ateliers et du brainstorming."
+    }
+  },
+  "contactContent": {
+    "title": "Contact",
+    "subtitle": "Vous avez des questions ? Contactez-nous — nous sommes prêts à aider !",
+    "getInTouch": "Entrer en Contact",
+    "sendMessage": "Envoyer un Message",
+    "phone": "Téléphone",
+    "email": "Email",
+    "address": "Adresse",
+    "info": {
+      "phone": "+998 99 123 45 67",
+      "email": "info@example.uz",
+      "address": "Ville de Tachkent, district de Mirzo Ulug'bek, rue Buyuk Ipak Yo'li, Maison 123"
+    },
+    "form": {
+      "namePlaceholder": "Votre nom",
+      "emailPlaceholder": "Votre email",
+      "phonePlaceholder": "Votre numéro de téléphone",
+      "messagePlaceholder": "Écrivez votre message...",
+      "submitButton": "Envoyer le Message"
+    }
+  },
+  "testimonialsContent": {
+    "1": {
+      "name": "Azizbek Karimov",
+      "role": "Directeur IT, UzAuto Motors",
+      "quote": "Cette équipe a complètement optimisé nos processus métier. Grâce à leur approche professionnelle de la collecte des exigences et de la modélisation, notre projet a été terminé avant l'échéance."
+    },
+    "2": {
+      "name": "Dilnoza Salimova",
+      "role": "Chef de Projet, Kapitalbank",
+      "quote": "Les services de conseil et les cours éducatifs ont élevé notre équipe d'analystes internes à un nouveau niveau. Maintenant, nous pouvons gérer avec succès des projets complexes nous-mêmes."
+    },
+    "3": {
+      "name": "Rustam Toshpulatov",
+      "role": "PDG, TechSolutions LLC",
+      "quote": "Grâce au service d'embauche d'analystes d'affaires, nous avons trouvé un excellent spécialiste. En un mois, ils ont augmenté l'efficacité de notre entreprise de 30 %. Merci !"
+    }
+  },
+  "footer": {
+    "links": {
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions d'Utilisation",
+      "contact": "Contactez-Nous"
+    },
+    "copyright": "© {{year}} Baraka Institute. Tous droits réservés."
+  },
+  "hero": {
+    "title": "Débloquez les Insights avec des Solutions Axées sur les Données",
+    "subtitle": "Transformez vos décisions d'affaires avec des analyses pratiques et des solutions intelligentes.",
+    "button": "Commencer"
+  },
+  "loading": "Chargement..."
+}

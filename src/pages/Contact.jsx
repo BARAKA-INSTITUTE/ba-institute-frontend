@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { contact } from "@utils/constants";
@@ -6,12 +7,13 @@ import { contact } from "@utils/constants";
 gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
+  const { t } = useTranslation();
   const sectionsRef = useRef([]);
   const infoCardsRef = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      sectionsRef.current.forEach((section, idx) => {
+      sectionsRef.current.forEach((section) => {
         if (!section) return;
 
         gsap.fromTo(
@@ -133,10 +135,10 @@ const Contact = () => {
         <div className="absolute inset-0 bg-emerald-900 opacity-70"></div>
         <div className="relative max-w-7xl mx-auto px-6 text-center ">
           <h1 className="font-serif text-5xl md:text-6xl font-bold text-white">
-            {contact.hero.title}
+            {t('contactContent.title')}
           </h1>
           <p className="mt-6 text-xl md:text-2xl text-white">
-            {contact.hero.subtitle}
+            {t('contactContent.subtitle')}
           </p>
         </div>
       </div>
@@ -147,7 +149,7 @@ const Contact = () => {
       >
         <div className="space-y-8">
           <h2 className="font-serif text-4xl font-bold  dark:">
-            Get in Touch
+            {t('contactContent.getInTouch')}
           </h2>
 
           <div
@@ -160,8 +162,8 @@ const Contact = () => {
               </svg>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold  dark:">Phone</h3>
-              <p className="text-lg  dark: mt-2">{contact.info.phone}</p>
+              <h3 className="text-2xl font-semibold  dark:">{t('contactContent.phone')}</h3>
+              <p className="text-lg  dark: mt-2">{t('contactContent.info.phone')}</p>
             </div>
           </div>
 
@@ -175,8 +177,8 @@ const Contact = () => {
               </svg>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold  dark:">Email</h3>
-              <p className="text-lg  dark: mt-2">{contact.info.email}</p>
+              <h3 className="text-2xl font-semibold  dark:">{t('contactContent.email')}</h3>
+              <p className="text-lg  dark: mt-2">{t('contactContent.info.email')}</p>
             </div>
           </div>
 
@@ -190,45 +192,45 @@ const Contact = () => {
               </svg>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold  dark:">Address</h3>
-              <p className="text-lg  dark: mt-2">{contact.info.address}</p>
+              <h3 className="text-2xl font-semibold  dark:">{t('contactContent.address')}</h3>
+              <p className="text-lg  dark: mt-2">{t('contactContent.info.address')}</p>
             </div>
           </div>
         </div>
 
         <div className=" rounded-xl shadow-lg p-8">
           <h2 className="font-serif text-4xl font-bold  dark: mb-8">
-            Send a Message
+            {t('contactContent.sendMessage')}
           </h2>
           <form className="space-y-6">
             <input
               type="text"
-              placeholder={contact.form.namePlaceholder}
+              placeholder={t('contactContent.form.namePlaceholder')}
               className="w-full px-6 py-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-emerald-300"
               required
             />
             <input
               type="email"
-              placeholder={contact.form.emailPlaceholder}
+              placeholder={t('contactContent.form.emailPlaceholder')}
               className="w-full px-6 py-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-emerald-300"
               required
             />
             <input
               type="tel"
-              placeholder={contact.form.phonePlaceholder}
+              placeholder={t('contactContent.form.phonePlaceholder')}
               className="w-full px-6 py-4 rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-emerald-300"
             />
             <textarea
               rows="6"
-              placeholder={contact.form.messagePlaceholder}
+              placeholder={t('contactContent.form.messagePlaceholder')}
               className="w-full px-6 py-4 rounded-lg border border-gray-200 dark:border-gray-700  dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 focus:outline-none focus:ring-4 focus:ring-emerald-300"
               required
             ></textarea>
             <button
               type="submit"
-              className="w-full bg-white cursor-pointer font-bold py-4 rounded-lg hover:scale-105 transition duration-300 shadow-lg bg-white/25 border border-white/50 backdrop-blur-md backdrop-saturate-150 hover:bg-white/25 hover:border-white/50"
+              className="w-full font-bold py-4 rounded-lg hover:scale-105 transition duration-300 shadow-lg bg-emerald-500 text-white hover:bg-emerald-600 border border-emerald-400"
             >
-              {contact.form.submitButton}
+              {t('contactContent.form.submitButton')}
             </button>
           </form>
         </div>

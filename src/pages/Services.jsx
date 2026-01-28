@@ -1,18 +1,20 @@
 import React, { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { services } from "@utils/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Services = () => {
+const Services = ({ isDarkMode }) => {
+  const { t } = useTranslation();
   const sectionsRef = useRef([]);
 
   // TODO: Animate sections on mount
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      sectionsRef.current.forEach((section, idx) => {
+      sectionsRef.current.forEach((section) => {
         if (!section) return;
 
         gsap.fromTo(
@@ -75,11 +77,41 @@ const Services = () => {
   }, []);
 
   const serviceList = [
-    services.hiring,
-    services.consulting,
-    services.education,
-    services.modeling,
-    services.workshops,
+    {
+      key: 'hiring',
+      title: t('servicesContent.hiring.title'),
+      description: t('servicesContent.hiring.description'),
+      features: t('servicesContent.hiring.features', { returnObjects: true }),
+      img: services.hiring.img
+    },
+    {
+      key: 'consulting',
+      title: t('servicesContent.consulting.title'),
+      description: t('servicesContent.consulting.description'),
+      features: t('servicesContent.consulting.features', { returnObjects: true }),
+      img: services.consulting.img
+    },
+    {
+      key: 'education',
+      title: t('servicesContent.education.title'),
+      description: t('servicesContent.education.description'),
+      features: t('servicesContent.education.features', { returnObjects: true }),
+      img: services.education.img
+    },
+    {
+      key: 'modeling',
+      title: t('servicesContent.modeling.title'),
+      description: t('servicesContent.modeling.description'),
+      features: null,
+      img: services.modeling.img
+    },
+    {
+      key: 'workshops',
+      title: t('servicesContent.workshops.title'),
+      description: t('servicesContent.workshops.description'),
+      features: null,
+      img: services.workshops.img
+    },
   ];
 
   return (
@@ -91,17 +123,17 @@ const Services = () => {
       >
         <div className="text-part flex-1 flex flex-col justify-center space-y-6">
           <h1 className="font-serif text-4xl font-bold  dark:">
-            {services.intro.title}
+            {t('servicesContent.title')}
           </h1>
           <p className="text-lg leading-relaxed  dark:">
-            {services.intro.text1}
+            {t('servicesContent.intro.text1')}
           </p>
           <p className="text-lg leading-relaxed  dark:">
-            {services.intro.text2}
+            {t('servicesContent.intro.text2')}
           </p>
         </div>
 
-        <div className="img-part flex-1 rounded-xl overflow-hidden border-2 border-gray-300 hover:scale-105 transition-transform duration-300 shadow-lg w-full h-64 md:h-auto">
+        <div className={`img-part flex-1 rounded-xl overflow-hidden border-2 hover:scale-105 transition-transform duration-300 shadow-lg w-full h-64 md:h-auto ${isDarkMode ? 'border-slate-600' : 'border-gray-300'}`}>
           <img
             src={services.intro.img}
             alt="Professional business team"
@@ -135,7 +167,7 @@ const Services = () => {
             )}
           </div>
 
-          <div className="img-part flex-1 rounded-xl overflow-hidden border-2 border-gray-300 hover:scale-105 transition-transform duration-300 shadow-lg w-full h-64 md:h-auto">
+          <div className={`img-part flex-1 rounded-xl overflow-hidden border-2 hover:scale-105 transition-transform duration-300 shadow-lg w-full h-64 md:h-auto ${isDarkMode ? 'border-slate-600' : 'border-gray-300'}`}>
             <img
               src={service.img}
               alt={service.title}

@@ -1,17 +1,49 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Sidebar from "./Sidebar";
+import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeToggle from "./ThemeToggle";
 import { navLinks } from "@utils/constants";
 
 const Navbar = ({ isDarkMode, setIsDarkMode }) => {
+  const { t } = useTranslation();
   const navSurface = isDarkMode
     ? "text-white bg-slate-900/70 border-white/10 shadow-lg"
     : "text-gray-900 bg-white/70 border-white/50 shadow-lg";
   const [open, setOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     document.body.classList.toggle("overflow-hidden", open);
     return () => document.body.classList.remove("overflow-hidden");
   }, [open]);
+
+  // Detect active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks
+        .filter(link => link.targetId)
+        .map(link => link.targetId);
+
+      const scrollPosition = window.scrollY + 100; // Offset for navbar height
+
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check initial position
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleScroll = (id) => {
     const element = document.getElementById(id);
@@ -26,7 +58,6 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
         className="flex items-center space-x-3 cursor-pointer"
         onClick={() => handleScroll("home")}
       >
-        <img src="/logo.png" alt="logo" className="h-8" />
         <p className="font-semibold text-xl tracking-wide">Baraka Institute</p>
       </div>
 
@@ -34,16 +65,8 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
         {navLinks.map(({ id, name, targetId }) => {
           if (id === 5) {
             return (
-              <li
-                key={id}
-                className="cursor-pointer hover:text-emerald-400 transition-colors duration-200"
-                onClick={() => setIsDarkMode(!isDarkMode)}
-              >
-                <i
-                  className={
-                    isDarkMode ? "fa-solid fa-moon" : "fa-solid fa-sun"
-                  }
-                ></i>
+              <li key={id}>
+                <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />
               </li>
             );
           }
@@ -52,17 +75,24 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
             ? "hover:text-emerald-300"
             : "hover:text-emerald-400";
 
+          const isActive = activeSection === targetId;
+          const activeColor = isDarkMode ? "text-emerald-400" : "text-emerald-600";
+
           return (
             <li
               key={id}
-              className={`cursor-pointer transition-colors duration-200 ${linkColor}`}
+              className={`cursor-pointer transition-colors duration-200 ${
+                isActive ? activeColor : linkColor
+              } ${isActive ? "font-semibold" : ""}`}
               onClick={() => handleScroll(targetId)}
             >
-              {name}
+              {t(name.toLowerCase())}
             </li>
           );
         })}
       </ul>
+
+      <LanguageSwitcher />
 
       <button
         onClick={() => setOpen(true)}
@@ -83,7 +113,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
         </svg>
       </button>
 
-      <Sidebar open={open} onClose={() => setOpen(false)} />
+      <Sidebar open={open} onClose={() => setOpen(false)} isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} activeSection={activeSection} />
     </nav>
   );
 };
