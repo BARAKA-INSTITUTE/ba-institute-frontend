@@ -20,7 +20,7 @@
     }
   ],
   "env": {
-    "RESEND_API_KEY": "@resend-api-key",
+    "RESEND_API_KEY": "resend-api-key",
     "MONGODB_URI": "@mongodb-uri",
     "MONGODB_DB_NAME": "@mongodb-db-name",
     "OWNER_EMAIL": "@owner-email"
