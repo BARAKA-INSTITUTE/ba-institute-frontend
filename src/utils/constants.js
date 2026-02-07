@@ -2,8 +2,9 @@ const navLinks = [
   { id: 1, name: 'Home', targetId: "home" },
   { id: 2, name: 'About', targetId: "about" },
   { id: 3, name: 'Services', targetId: "services" },
-  { id: 4, name: 'Contact', targetId: "contact" },
-  { id: 5, name: ''},
+  { id: 4, name: 'FAQ', targetId: "faq" },
+  { id: 5, name: 'Contact', targetId: "contact" },
+  { id: 6, name: ''},
     
 ]
 
@@ -11,7 +12,8 @@ const navIcons = [
     {id:1, icon: 'fa-solid fa-house'},
     {id:2, icon: 'fa-solid fa-user'},
     {id:3, icon: 'fa-solid fa-briefcase'},
-    {id:4, icon: 'fa-solid fa-envelope'},
+    {id:4, icon: 'fa-solid fa-circle-question'},
+    {id:5, icon: 'fa-solid fa-envelope'},
  
 ]
 
@@ -169,27 +171,35 @@ const contact = {
  const testimonials = [
   {
     id: 1,
-    name: "Azizbek Karimov",
-    role: "IT Director, UzAuto Motors",
+    name: "Sarah Johnson",
+    role: "Junior Business Analyst",
     quote:
-      "This team completely optimized our business processes. Thanks to their professional approach to requirements gathering and modeling, our project was completed ahead of schedule.",
+      "Barakah IT Institute transformed my career. The practical, hands-on approach gave me the confidence and skills to land my first BA role within two months of completing the program.",
     img: "https://media.istockphoto.com/id/2004891062/photo/happy-mid-aged-business-woman-manager-handshaking-greeting-client-in-office.jpg?s=612x612&w=0&k=20&c=kP6DSKhIVMO-m27l4nCmvpwzaKvzV8ncPT9elotc4QI=",
   },
   {
     id: 2,
-    name: "Dilnoza Salimova",
-    role: "Project Manager, Kapitalbank",
+    name: "Ahmed Al-Rashid",
+    role: "Senior Business Analyst",
     quote:
-      "The consulting services and educational courses took our internal analysts' team to a new level. Now we can successfully manage complex projects ourselves.",
-    img: "https://media.istockphoto.com/id/1591572504/photo/cheerful-businesswomen-shaking-hands-in-meeting-room.jpg?s=612x612&w=0&k=20&c=mo5VjVyA-t4ydS6ZjJVxaUSi0v9KVbJV_Go5EOF_B8M=",
+      "The comprehensive BA lifecycle training and mentorship I received were game-changers. This program bridges theory and practice like no other, preparing you for real-world challenges.",
+    img: "https://media.istockphoto.com/id/1824279555/photo/happy-insurance-agent-talking-to-her-customers-in-the-office.jpg?s=612x612&w=0&k=20&c=yc0_-ofn4XzXpfRFyGYlUgvqigBPBV4nq8I9eIjTHOI=",
   },
   {
     id: 3,
-    name: "Rustam Toshpulatov",
-    role: "CEO, TechSolutions LLC",
+    name: "Maria Rodriguez",
+    role: "Product Owner",
     quote:
-      "Through the business analyst hiring service, we found an excellent specialist. Within a month, they increased our company's efficiency by 30%. Thank you!",
-    img: "https://media.istockphoto.com/id/1824279555/photo/happy-insurance-agent-talking-to-her-customers-in-the-office.jpg?s=612x612&w=0&k=20&c=yc0_-ofn4XzXpfRFyGYlUgvqigBPBV4nq8I9eIjTHOI=",
+      "The remote-first learning model allowed me to upskill while working full-time. The practical exercises and career guidance helped me transition from IT to a rewarding BA career path.",
+    img: "https://media.istockphoto.com/id/1591572504/photo/cheerful-businesswomen-shaking-hands-in-meeting-room.jpg?s=612x612&w=0&k=20&c=mo5VjVyA-t4ydS6ZjJVxaUSi0v9KVbJV_Go5EOF_B8M=",
+  },
+  {
+    id: 4,
+    name: "David Chen",
+    role: "Consultant at Big4 Firm",
+    quote:
+      "Barakah's consultation services helped our team implement best practices in requirements gathering and process modeling. Their expertise is unmatched in the industry.",
+    img: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=400&h=400&fit=crop",
   },
 ];
 

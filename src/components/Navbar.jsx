@@ -63,7 +63,7 @@ const Navbar = ({ isDarkMode, setIsDarkMode }) => {
 
       <ul className="hidden md:flex items-center space-x-8">
         {navLinks.map(({ id, name, targetId }) => {
-          if (id === 5) {
+          if (id === 6) {
             return (
               <li key={id}>
                 <ThemeToggle isDarkMode={isDarkMode} setIsDarkMode={setIsDarkMode} />

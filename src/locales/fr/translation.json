@@ -3,14 +3,48 @@
   "home": "Accueil",
   "about": "À propos",
   "services": "Services",
+  "faq": "FAQ",
   "contact": "Contact",
   "testimonials": "Témoignages",
   "language": "Langue",
   "aboutUs": {
-    "title": "À propos de nous",
-    "description": "Baraka Institute est un centre éducatif moderne qui offre une large gamme de cours et de formations pour les étudiants et les professionnels. Notre objectif est d'aider chacun à améliorer ses connaissances et ses compétences.",
+    "title": "À propos de Barakah IT Institute",
+    "subtitle": "Autonomiser les Analystes d'Affaires pour un Succès Réel",
+    "description": "Barakah IT Institute est une académie de formation en Analyse d'Affaires à distance dédiée à transformer les professionnels aspirants et praticiens en Analystes d'Affaires prêts pour la carrière. Nous comblons le fossé entre la théorie académique et les exigences de l'industrie grâce à des expériences d'apprentissage pratiques et concrètes.",
+    "aboutContent": {
+      "paragraph1": "En tant qu'académie de formation spécialisée en Analyse d'Affaires, nous nous concentrons exclusivement sur l'équipement de nos étudiants avec les compétences et les connaissances nécessaires pour exceller dans l'environnement commercial compétitif d'aujourd'hui.",
+      "paragraph2": "Notre approche à distance garantit l'accessibilité pour les apprenants du monde entier, vous permettant de faire progresser votre carrière BA de n'importe où tout en maintenant la flexibilité dans votre emploi du temps.",
+      "paragraph3": "Au-delà de la formation, nous servons de centre de consultation complet en Analyse d'Affaires, soutenant les organisations dans l'optimisation de leurs processus et la réalisation d'objectifs stratégiques."
+    },
     "missionTitle": "Notre Mission",
-    "missionDescription": "Notre mission est de rendre l'éducation de qualité accessible et abordable pour tous. Nous soutenons les technologies avancées et les méthodes d'apprentissage innovantes et aidons nos étudiants à développer des compétences pratiques.",
+    "missionDescription": "Autonomiser les Analystes d'Affaires à tous les stades de carrière en comblant la théorie et les exigences de l'industrie grâce à une formation pratique, prête pour la carrière, un mentorat et des parcours d'apprentissage guidés sur l'ensemble du cycle de vie BA.",
+    "missionPoints": {
+      "point1": "Combler le fossé entre les connaissances théoriques et les exigences de l'industrie réelle",
+      "point2": "Fournir des expériences d'apprentissage pratiques et concrètes qui vous préparent pour un succès de carrière immédiat",
+      "point3": "Offrir un soutien personnalisé à la préparation de carrière et un mentorat continu",
+      "point4": "Guider les apprenants à travers des parcours complets couvrant le cycle de vie complet de l'Analyse d'Affaires",
+      "point5": "Offrir une consultation professionnelle en Analyse d'Affaires pour favoriser l'excellence organisationnelle"
+    },
+    "valuesTitle": "Nos Valeurs Fondamentales",
+    "valuesContent": {
+      "practical": {
+        "title": "Apprentissage Pratique",
+        "description": "Projets réels et études de cas qui reflètent les scénarios commerciaux actuels"
+      },
+      "career": {
+        "title": "Orientation Prête pour la Carrière",
+        "description": "Curriculum aligné sur l'industrie conçu pour vous rendre prêt à l'emploi dès le premier jour"
+      },
+      "mentorship": {
+        "title": "Mentorat Guidé",
+        "description": "Guidance d'experts tout au long de votre parcours d'apprentissage et de développement de carrière"
+      },
+      "remote": {
+        "title": "Accessibilité à Distance",
+        "description": "Apprenez de n'importe où avec des programmes de formation en ligne flexibles et complets"
+      }
+    },
+    "testimonialsTitle": "Ce Que Disent Nos Apprenants",
     "teamTitle": "Notre Équipe"
   },
   "teamMembers": {
@@ -78,41 +112,51 @@
     }
   },
   "contactContent": {
-    "title": "Contact",
-    "subtitle": "Vous avez des questions ? Contactez-nous — nous sommes prêts à aider !",
-    "getInTouch": "Entrer en Contact",
-    "sendMessage": "Envoyer un Message",
-    "phone": "Téléphone",
-    "email": "Email",
-    "address": "Adresse",
-    "info": {
-      "phone": "+998 99 123 45 67",
-      "email": "info@example.uz",
-      "address": "Ville de Tachkent, district de Mirzo Ulug'bek, rue Buyuk Ipak Yo'li, Maison 123"
-    },
+    "title": "Nous Contacter",
+    "subtitle": "Vous avez des questions? Envoyez-nous votre demande et nous vous répondrons rapidement.",
     "form": {
-      "namePlaceholder": "Votre nom",
-      "emailPlaceholder": "Votre email",
-      "phonePlaceholder": "Votre numéro de téléphone",
-      "messagePlaceholder": "Écrivez votre message...",
-      "submitButton": "Envoyer le Message"
+      "firstName": "Prénom",
+      "lastName": "Nom de famille",
+      "email": "Adresse e-mail",
+      "message": "Question / Message",
+      "firstNamePlaceholder": "Entrez votre prénom",
+      "lastNamePlaceholder": "Entrez votre nom de famille",
+      "emailPlaceholder": "Entrez votre adresse e-mail",
+      "messagePlaceholder": "Écrivez votre question ou message ici...",
+      "submitButton": "Envoyer",
+      "submitting": "Envoi en cours...",
+      "successMessage": "Merci! Votre demande a été soumise avec succès. Nous l'examinerons et vous répondrons bientôt.",
+      "errorMessage": "Désolé, quelque chose s'est mal passé. Veuillez réessayer plus tard.",
+      "privacyNote": "Vos informations sont sécurisées et ne seront jamais partagées publiquement.",
+      "errors": {
+        "firstNameRequired": "Le prénom est requis",
+        "lastNameRequired": "Le nom de famille est requis",
+        "emailRequired": "L'adresse e-mail est requise",
+        "emailInvalid": "Veuillez entrer une adresse e-mail valide",
+        "messageRequired": "Veuillez entrer votre question ou message"
+      }
     }
   },
   "testimonialsContent": {
     "1": {
-      "name": "Azizbek Karimov",
-      "role": "Directeur IT, UzAuto Motors",
-      "quote": "Cette équipe a complètement optimisé nos processus métier. Grâce à leur approche professionnelle de la collecte des exigences et de la modélisation, notre projet a été terminé avant l'échéance."
+      "name": "Sarah Johnson",
+      "role": "Analyste d'Affaires Junior",
+      "quote": "Barakah IT Institute a transformé ma carrière. L'approche pratique et concrète m'a donné la confiance et les compétences pour décrocher mon premier poste BA dans les deux mois suivant la fin du programme."
     },
     "2": {
-      "name": "Dilnoza Salimova",
-      "role": "Chef de Projet, Kapitalbank",
-      "quote": "Les services de conseil et les cours éducatifs ont élevé notre équipe d'analystes internes à un nouveau niveau. Maintenant, nous pouvons gérer avec succès des projets complexes nous-mêmes."
+      "name": "Ahmed Al-Rashid",
+      "role": "Analyste d'Affaires Senior",
+      "quote": "La formation complète sur le cycle de vie BA et le mentorat que j'ai reçus ont changé la donne. Ce programme comble la théorie et la pratique comme aucun autre, vous préparant aux défis du monde réel."
     },
     "3": {
-      "name": "Rustam Toshpulatov",
-      "role": "PDG, TechSolutions LLC",
-      "quote": "Grâce au service d'embauche d'analystes d'affaires, nous avons trouvé un excellent spécialiste. En un mois, ils ont augmenté l'efficacité de notre entreprise de 30 %. Merci !"
+      "name": "Maria Rodriguez",
+      "role": "Product Owner",
+      "quote": "Le modèle d'apprentissage à distance m'a permis de me perfectionner tout en travaillant à temps plein. Les exercices pratiques et les conseils de carrière m'ont aidé à passer de l'IT à une carrière BA enrichissante."
+    },
+    "4": {
+      "name": "David Chen",
+      "role": "Consultant chez Big4",
+      "quote": "Les services de consultation de Barakah ont aidé notre équipe à mettre en œuvre les meilleures pratiques en matière de collecte d'exigences et de modélisation de processus. Leur expertise est inégalée dans l'industrie."
     }
   },
   "footer": {
@@ -128,5 +172,54 @@
     "subtitle": "Transformez vos décisions d'affaires avec des analyses pratiques et des solutions intelligentes.",
     "button": "Commencer"
   },
-  "loading": "Chargement..."
+  "loading": "Chargement...",
+  "faqPage": {
+    "title": "Questions Fréquemment Posées",
+    "subtitle": "Trouvez des réponses aux questions courantes sur les services et offres de Baraka Institut",
+    "q1": {
+      "question": "Qu'est-ce que Baraka Institut?",
+      "answer": "Baraka Institut fournit des services professionnels d'analyse d'affaires, de conseil, de recrutement et des cours éducatifs pour aider les individus et les entreprises à améliorer leurs performances et à atteindre un succès à long terme."
+    },
+    "q2": {
+      "question": "Quels services propose Baraka Institut?",
+      "answer": "Nous offrons du conseil en analyse d'affaires, du recrutement d'analystes d'affaires (temporaire ou permanent), de la modélisation des processus métier, des ateliers d'exigences, et des cours vidéo éducatifs et formations."
+    },
+    "q3": {
+      "question": "À qui s'adressent vos services?",
+      "answer": "Nos services sont conçus pour les entreprises recherchant l'optimisation des processus et des analystes experts, les professionnels améliorant leurs compétences, et les débutants commençant une carrière en analyse d'affaires."
+    },
+    "q4": {
+      "question": "Fournissez-vous des analystes d'affaires pour les entreprises?",
+      "answer": "Oui. Nous sélectionnons et plaçons des Analystes d'Affaires expérimentés pour soutenir vos projets, gérer les exigences et fournir des solutions efficaces."
+    },
+    "q5": {
+      "question": "Qu'est-ce qui distingue Baraka Institut?",
+      "answer": "Nous combinons une éducation abordable, une expérience de projet réel et des mentors avec plus de 5 ans d'expérience en tant qu'Analyste d'Affaires dans les meilleures entreprises—axés sur des résultats pratiques."
+    },
+    "q6": {
+      "question": "Offrez-vous des services de conseil?",
+      "answer": "Oui. Nous fournissons du conseil en analyse des processus métier, développement de stratégies, analyse concurrentielle et intégration de solutions IT."
+    },
+    "q7": {
+      "question": "Offrez-vous une formation pour les Analystes d'Affaires?",
+      "answer": "Oui. Nous fournissons des cours vidéo et une formation pratique couvrant BPMN, UML, la collecte des exigences et la pratique de projets réels."
+    },
+    "q8": {
+      "question": "Comment aidez-vous à améliorer les processus métier?",
+      "answer": "Nous analysons, modélisons et optimisons les processus en utilisant les normes BPMN, des audits et des ateliers pour augmenter l'efficacité et la compétitivité."
+    },
+    "q9": {
+      "question": "Pouvez-vous aider à recueillir les exigences commerciales?",
+      "answer": "Oui. Nous menons des entretiens avec les parties prenantes, des ateliers et des sessions de brainstorming pour recueillir des exigences claires et complètes."
+    },
+    "q10": {
+      "question": "Comment puis-je commencer?",
+      "answer": "Contactez-nous via notre site Web pour discuter des options de conseil, de recrutement ou de formation."
+    },
+    "cta": {
+      "title": "Vous avez encore des questions?",
+      "description": "Notre équipe est prête à vous aider à trouver la solution adaptée à vos besoins commerciaux.",
+      "button": "Contactez-nous"
+    }
+  }
 }

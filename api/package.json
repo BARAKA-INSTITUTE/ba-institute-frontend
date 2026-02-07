@@ -1,0 +1,10 @@
+{
+  "name": "barakah-it-api",
+  "version": "1.0.0",
+  "description": "Backend API for Barakah IT Institute contact form",
+  "type": "module",
+  "dependencies": {
+    "mongodb": "^6.3.0",
+    "resend": "^3.2.0"
+  }
+}

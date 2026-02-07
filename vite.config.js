@@ -14,4 +14,12 @@ export default defineConfig({
       '@utils': resolve(dirname(fileURLToPath(import.meta.url)), 'src/utils'),
     },
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+      },
+    },
+  },
 })

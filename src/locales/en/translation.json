@@ -3,14 +3,48 @@
   "home": "Home",
   "about": "About",
   "services": "Services",
+  "faq": "FAQ",
   "contact": "Contact",
   "testimonials": "Testimonials",
   "language": "Language",
   "aboutUs": {
-    "title": "About Us",
-    "description": "Baraka Institute is a modern educational center that offers a wide range of courses and trainings for students and professionals. Our goal is to help everyone enhance their knowledge and skills.",
+    "title": "About Barakah IT Institute",
+    "subtitle": "Empowering Business Analysts for Real-World Success",
+    "description": "Barakah IT Institute is a remote-first Business Analysis training academy dedicated to transforming aspiring and practicing professionals into career-ready Business Analysts. We bridge the gap between academic theory and industry demands through practical, hands-on learning experiences.",
+    "aboutContent": {
+      "paragraph1": "As a specialized Business Analysis training academy, we focus exclusively on equipping our students with the skills and knowledge needed to excel in today's competitive business environment.",
+      "paragraph2": "Our remote-first approach ensures accessibility for learners worldwide, allowing you to advance your BA career from anywhere while maintaining flexibility in your schedule.",
+      "paragraph3": "Beyond training, we serve as a comprehensive Business Analysis consultation center, supporting organizations in optimizing their processes and achieving strategic objectives."
+    },
     "missionTitle": "Our Mission",
-    "missionDescription": "Our mission is to make quality education accessible and affordable for everyone. We support advanced technologies and innovative learning methods and help our students develop practical skills.",
+    "missionDescription": "To empower Business Analysts at all career stages by bridging theory and industry demands through practical, career-ready training, mentorship, and guided learning paths across the full BA lifecycle.",
+    "missionPoints": {
+      "point1": "Bridge the gap between theoretical knowledge and real-world industry demands",
+      "point2": "Deliver practical, hands-on learning experiences that prepare you for immediate career success",
+      "point3": "Provide personalized career readiness support and ongoing mentorship",
+      "point4": "Guide learners through comprehensive paths covering the complete Business Analysis lifecycle",
+      "point5": "Offer professional Business Analysis consultation to drive organizational excellence"
+    },
+    "valuesTitle": "Our Core Values",
+    "valuesContent": {
+      "practical": {
+        "title": "Practical Learning",
+        "description": "Real-world projects and case studies that mirror actual business scenarios"
+      },
+      "career": {
+        "title": "Career-Ready Focus",
+        "description": "Industry-aligned curriculum designed to make you job-ready from day one"
+      },
+      "mentorship": {
+        "title": "Guided Mentorship",
+        "description": "Expert guidance throughout your learning journey and career development"
+      },
+      "remote": {
+        "title": "Remote-First Accessibility",
+        "description": "Learn from anywhere with flexible, comprehensive online training programs"
+      }
+    },
+    "testimonialsTitle": "What Our Learners Say",
     "teamTitle": "Our Team"
   },
   "teamMembers": {
@@ -78,41 +112,51 @@
     }
   },
   "contactContent": {
-    "title": "Contact",
-    "subtitle": "Have questions? Contact us — we're ready to help!",
-    "getInTouch": "Get in Touch",
-    "sendMessage": "Send a Message",
-    "phone": "Phone",
-    "email": "Email",
-    "address": "Address",
-    "info": {
-      "phone": "+998 99 123 45 67",
-      "email": "info@example.uz",
-      "address": "Tashkent city, Mirzo Ulug'bek district, Buyuk Ipak Yo'li street, House 123"
-    },
+    "title": "Contact Us",
+    "subtitle": "Have questions? Send us your inquiry and we'll get back to you shortly.",
     "form": {
-      "namePlaceholder": "Your name",
-      "emailPlaceholder": "Your email",
-      "phonePlaceholder": "Your phone number",
-      "messagePlaceholder": "Write your message...",
-      "submitButton": "Send Message"
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "message": "Query / Message",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastNamePlaceholder": "Enter your last name",
+      "emailPlaceholder": "Enter your email address",
+      "messagePlaceholder": "Write your query or message here...",
+      "submitButton": "Send",
+      "submitting": "Sending...",
+      "successMessage": "Thank you! Your inquiry has been successfully submitted. We will review it and get back to you soon.",
+      "errorMessage": "Sorry, something went wrong. Please try again later.",
+      "privacyNote": "Your information is secure and will never be shared publicly.",
+      "errors": {
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "emailRequired": "Email address is required",
+        "emailInvalid": "Please enter a valid email address",
+        "messageRequired": "Please enter your query or message"
+      }
     }
   },
   "testimonialsContent": {
     "1": {
-      "name": "Azizbek Karimov",
-      "role": "IT Director, UzAuto Motors",
-      "quote": "This team completely optimized our business processes. Thanks to their professional approach to requirements gathering and modeling, our project was completed ahead of schedule."
+      "name": "Sarah Johnson",
+      "role": "Junior Business Analyst",
+      "quote": "Barakah IT Institute transformed my career. The practical, hands-on approach gave me the confidence and skills to land my first BA role within two months of completing the program."
     },
     "2": {
-      "name": "Dilnoza Salimova",
-      "role": "Project Manager, Kapitalbank",
-      "quote": "The consulting services and educational courses took our internal analysts' team to a new level. Now we can successfully manage complex projects ourselves."
+      "name": "Ahmed Al-Rashid",
+      "role": "Senior Business Analyst",
+      "quote": "The comprehensive BA lifecycle training and mentorship I received were game-changers. This program bridges theory and practice like no other, preparing you for real-world challenges."
     },
     "3": {
-      "name": "Rustam Toshpulatov",
-      "role": "CEO, TechSolutions LLC",
-      "quote": "Through the business analyst hiring service, we found an excellent specialist. Within a month, they increased our company's efficiency by 30%. Thank you!"
+      "name": "Maria Rodriguez",
+      "role": "Product Owner",
+      "quote": "The remote-first learning model allowed me to upskill while working full-time. The practical exercises and career guidance helped me transition from IT to a rewarding BA career path."
+    },
+    "4": {
+      "name": "David Chen",
+      "role": "Consultant at Big4 Firm",
+      "quote": "Barakah's consultation services helped our team implement best practices in requirements gathering and process modeling. Their expertise is unmatched in the industry."
     }
   },
 
@@ -131,5 +175,54 @@
     "subtitle": "Transform your business decisions with practical analytics and smart solutions.",
     "button": "Get Started"
   },
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "faqPage": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about Baraka Institute's services and offerings",
+    "q1": {
+      "question": "What is Baraka Institute?",
+      "answer": "Baraka Institute provides professional business analysis services, consulting, staffing, and educational courses to help individuals and companies improve performance and achieve long-term success."
+    },
+    "q2": {
+      "question": "What services does Baraka Institute offer?",
+      "answer": "We offer business analysis consulting, business analyst staffing (temporary or permanent), business process modeling, requirements workshops, and educational video courses and trainings."
+    },
+    "q3": {
+      "question": "Who are your services for?",
+      "answer": "Our services are designed for companies seeking process optimization and expert analysts, professionals upgrading their skills, and beginners starting a career in business analysis."
+    },
+    "q4": {
+      "question": "Do you provide business analysts for companies?",
+      "answer": "Yes. We select and place experienced Business Analysts to support your projects, manage requirements, and deliver effective solutions."
+    },
+    "q5": {
+      "question": "What makes Baraka Institute different?",
+      "answer": "We combine affordable education, real project experience, and mentors with 5+ years of Business Analyst experience in top companies—focused on practical results."
+    },
+    "q6": {
+      "question": "Do you offer consulting services?",
+      "answer": "Yes. We provide consulting in business process analysis, strategy development, competitive analysis, and IT solution integration."
+    },
+    "q7": {
+      "question": "Do you offer training for Business Analysts?",
+      "answer": "Yes. We provide video courses and hands-on training covering BPMN, UML, requirements gathering, and real project practice."
+    },
+    "q8": {
+      "question": "How do you help improve business processes?",
+      "answer": "We analyze, model, and optimize processes using BPMN standards, audits, and workshops to increase efficiency and competitiveness."
+    },
+    "q9": {
+      "question": "Can you help gather business requirements?",
+      "answer": "Yes. We conduct stakeholder interviews, workshops, and brainstorming sessions to collect clear and complete requirements."
+    },
+    "q10": {
+      "question": "How can I get started?",
+      "answer": "Contact us through our website to discuss consulting, staffing, or training options."
+    },
+    "cta": {
+      "title": "Still have questions?",
+      "description": "Our team is ready to help you find the right solution for your business needs.",
+      "button": "Contact Us"
+    }
+  }
 }

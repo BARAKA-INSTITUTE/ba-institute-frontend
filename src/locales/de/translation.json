@@ -1,0 +1,225 @@
+{
+  "welcome": "Willkommen",
+  "home": "Startseite",
+  "about": "Über uns",
+  "services": "Dienstleistungen",
+  "faq": "FAQ",
+  "contact": "Kontakt",
+  "testimonials": "Erfahrungsberichte",
+  "language": "Sprache",
+  "aboutUs": {
+    "title": "Über Barakah IT Institut",
+    "subtitle": "Business-Analysten für realen Erfolg befähigen",
+    "description": "Das Barakah IT Institut ist eine remote-basierte Business-Analyse-Schulungsakademie, die sich der Transformation aufstrebender und praktizierender Fachkräfte zu karrierebereiten Business-Analysten widmet. Wir schließen die Lücke zwischen akademischer Theorie und Industrieanforderungen durch praktische, praxisorientierte Lernerfahrungen.",
+    "aboutContent": {
+      "paragraph1": "Als spezialisierte Business-Analyse-Schulungsakademie konzentrieren wir uns ausschließlich darauf, unsere Studenten mit den Fähigkeiten und Kenntnissen auszustatten, die sie benötigen, um in der heutigen wettbewerbsintensiven Geschäftsumgebung erfolgreich zu sein.",
+      "paragraph2": "Unser remote-basierter Ansatz gewährleistet Zugänglichkeit für Lernende weltweit und ermöglicht es Ihnen, Ihre BA-Karriere von überall aus voranzutreiben und gleichzeitig Flexibilität in Ihrem Zeitplan zu bewahren.",
+      "paragraph3": "Über die Schulung hinaus dienen wir als umfassendes Business-Analyse-Beratungszentrum, das Organisationen bei der Optimierung ihrer Prozesse und der Erreichung strategischer Ziele unterstützt."
+    },
+    "missionTitle": "Unsere Mission",
+    "missionDescription": "Business-Analysten auf allen Karrierestufen zu befähigen, indem wir Theorie und Industrieanforderungen durch praktische, karrierebereite Schulung, Mentoring und geführte Lernpfade über den gesamten BA-Lebenszyklus hinweg verbinden.",
+    "missionPoints": {
+      "point1": "Die Lücke zwischen theoretischem Wissen und realen Industrieanforderungen schließen",
+      "point2": "Praktische, praxisorientierte Lernerfahrungen bieten, die Sie auf sofortigen Karriereerfolg vorbereiten",
+      "point3": "Personalisierte Karrierevorbereitungsunterstützung und kontinuierliches Mentoring anbieten",
+      "point4": "Lernende durch umfassende Pfade führen, die den vollständigen Business-Analyse-Lebenszyklus abdecken",
+      "point5": "Professionelle Business-Analyse-Beratung zur Förderung organisatorischer Exzellenz anbieten"
+    },
+    "valuesTitle": "Unsere Kernwerte",
+    "valuesContent": {
+      "practical": {
+        "title": "Praktisches Lernen",
+        "description": "Reale Projekte und Fallstudien, die tatsächliche Geschäftsszenarien widerspiegeln"
+      },
+      "career": {
+        "title": "Karrierebereiter Fokus",
+        "description": "Industrieorientierter Lehrplan, der Sie vom ersten Tag an berufsfähig macht"
+      },
+      "mentorship": {
+        "title": "Geführtes Mentoring",
+        "description": "Expertenführung während Ihrer Lernreise und Karriereentwicklung"
+      },
+      "remote": {
+        "title": "Remote-First-Zugänglichkeit",
+        "description": "Lernen Sie von überall mit flexiblen, umfassenden Online-Schulungsprogrammen"
+      }
+    },
+    "testimonialsTitle": "Was unsere Lernenden sagen",
+    "teamTitle": "Unser Team"
+  },
+  "teamMembers": {
+    "1": {
+      "name": "Tom Smith",
+      "role": "Gründer & CEO",
+      "bio": "John gründete das Unternehmen 2015 mit der Vision, die Branche zu revolutionieren. Er verfügt über mehr als 15 Jahre Erfahrung in Führung und Innovation."
+    },
+    "2": {
+      "name": "Ali Veli",
+      "role": "Frontend-Entwickler",
+      "bio": "Ali ist ein erfahrener Frontend-Entwickler mit einer Leidenschaft für die Erstellung intuitiver Benutzeroberflächen. Er ist seit 2018 im Unternehmen."
+    },
+    "3": {
+      "name": "Sara Ahmed",
+      "role": "Backend-Entwicklerin",
+      "bio": "Sara ist spezialisiert auf Backend-Entwicklung und Datenbankverwaltung. Sie kam 2019 zum Team und war maßgeblich am Aufbau robuster Systeme beteiligt."
+    },
+    "4": {
+      "name": "John Doe",
+      "role": "UI/UX-Designer",
+      "bio": "John ist ein kreativer UI/UX-Designer mit einem scharfen Auge fürs Detail. Er gestaltet seit 2017 benutzerzentrierte Erlebnisse."
+    }
+  },
+  "servicesContent": {
+    "title": "Unsere Dienstleistungen",
+    "intro": {
+      "text1": "Wir bieten professionelle Business-Analyse-Dienstleistungen für Unternehmen. Unsere erfahrenen Spezialisten helfen dabei, Ihre Geschäftsprozesse zu optimieren, Anforderungen zu identifizieren und effektive Lösungen zu implementieren.",
+      "text2": "Unser Ziel ist es, Ihrem Unternehmen zu langfristigem Erfolg zu verhelfen, indem wir die Wettbewerbsfähigkeit steigern und die Effizienz erhöhen."
+    },
+    "hiring": {
+      "title": "Business-Analysten für Unternehmen einstellen",
+      "description": "Wir wählen erfahrene Business-Analysten für Ihr Unternehmen aus und stellen sie ein. Unsere Spezialisten helfen bei der Verwaltung Ihrer Projekte, der Erfassung von Anforderungen und der Entwicklung effektiver Lösungen.",
+      "features": [
+        "Temporäre oder dauerhafte Einstellung",
+        "Qualifikationsprüfung von Spezialisten",
+        "End-to-End-Projektunterstützung"
+      ]
+    },
+    "consulting": {
+      "title": "Beratungsdienstleistungen",
+      "description": "Wir bieten professionelle Beratung zur Geschäftsprozessanalyse, Strategieentwicklung und Optimierung.",
+      "features": [
+        "Geschäftsprozess-Audits",
+        "Wettbewerbsanalyse und Strategie",
+        "Integration von IT-Lösungen"
+      ]
+    },
+    "education": {
+      "title": "Bildungsvideokurse für Business-Analysten",
+      "description": "Wir bieten spezialisierte Bildungsvideokurse und Schulungen für Anfänger und Profis in der Business-Analyse.",
+      "features": [
+        "BPMN, UML und andere Modelle",
+        "Techniken zur Anforderungserfassung",
+        "Praktische Übungen an realen Projekten"
+      ]
+    },
+    "modeling": {
+      "title": "Geschäftsprozessmodellierung",
+      "description": "Visuelle Modellierung und Optimierung von Prozessen basierend auf BPMN und anderen Standards."
+    },
+    "workshops": {
+      "title": "Workshops zur Anforderungserfassung",
+      "description": "Sammeln Sie klare und vollständige Anforderungen durch Stakeholder-Interviews, Workshops und Brainstorming."
+    }
+  },
+  "contactContent": {
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Haben Sie Fragen? Senden Sie uns Ihre Anfrage und wir melden uns in Kürze.",
+    "form": {
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail-Adresse",
+      "message": "Anfrage / Nachricht",
+      "firstNamePlaceholder": "Geben Sie Ihren Vornamen ein",
+      "lastNamePlaceholder": "Geben Sie Ihren Nachnamen ein",
+      "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+      "messagePlaceholder": "Schreiben Sie Ihre Anfrage oder Nachricht hier...",
+      "submitButton": "Senden",
+      "submitting": "Wird gesendet...",
+      "successMessage": "Vielen Dank! Ihre Anfrage wurde erfolgreich übermittelt. Wir werden sie prüfen und uns bald bei Ihnen melden.",
+      "errorMessage": "Entschuldigung, etwas ist schief gelaufen. Bitte versuchen Sie es später noch einmal.",
+      "privacyNote": "Ihre Informationen sind sicher und werden niemals öffentlich geteilt.",
+      "errors": {
+        "firstNameRequired": "Vorname ist erforderlich",
+        "lastNameRequired": "Nachname ist erforderlich",
+        "emailRequired": "E-Mail-Adresse ist erforderlich",
+        "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+        "messageRequired": "Bitte geben Sie Ihre Anfrage oder Nachricht ein"
+      }
+    }
+  },
+  "testimonialsContent": {
+    "1": {
+      "name": "Sarah Johnson",
+      "role": "Junior Business Analystin",
+      "quote": "Das Barakah IT Institut hat meine Karriere transformiert. Der praktische, praxisorientierte Ansatz gab mir das Vertrauen und die Fähigkeiten, um innerhalb von zwei Monaten nach Abschluss des Programms meine erste BA-Rolle zu bekommen."
+    },
+    "2": {
+      "name": "Ahmed Al-Rashid",
+      "role": "Senior Business Analyst",
+      "quote": "Die umfassende BA-Lebenszyklus-Schulung und das Mentoring, die ich erhalten habe, waren bahnbrechend. Dieses Programm verbindet Theorie und Praxis wie kein anderes und bereitet Sie auf reale Herausforderungen vor."
+    },
+    "3": {
+      "name": "Maria Rodriguez",
+      "role": "Product Owner",
+      "quote": "Das Remote-First-Lernmodell ermöglichte es mir, mich weiterzubilden, während ich Vollzeit arbeitete. Die praktischen Übungen und Karriereberatung halfen mir, von der IT zu einer lohnenden BA-Karriere zu wechseln."
+    },
+    "4": {
+      "name": "David Chen",
+      "role": "Berater bei Big4-Firma",
+      "quote": "Die Beratungsdienstleistungen von Barakah halfen unserem Team, Best Practices in der Anforderungserfassung und Prozessmodellierung umzusetzen. Ihr Fachwissen ist in der Branche unübertroffen."
+    }
+  },
+  "footer": {
+    "links": {
+      "privacy": "Datenschutzerklärung",
+      "terms": "Nutzungsbedingungen",
+      "contact": "Kontaktieren Sie uns"
+    },
+    "copyright": "© {{year}} Baraka Institut. Alle Rechte vorbehalten."
+  },
+  "hero": {
+    "title": "Erkenntnisse durch datengetriebene Lösungen freischalten",
+    "subtitle": "Transformieren Sie Ihre Geschäftsentscheidungen mit praktischen Analysen und intelligenten Lösungen.",
+    "button": "Loslegen"
+  },
+  "loading": "Laden...",
+  "faqPage": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Finden Sie Antworten auf häufige Fragen zu den Dienstleistungen und Angeboten von Baraka Institut",
+    "q1": {
+      "question": "Was ist Baraka Institut?",
+      "answer": "Baraka Institut bietet professionelle Business-Analyse-Dienstleistungen, Beratung, Personalvermittlung und Bildungskurse, um Einzelpersonen und Unternehmen zu helfen, ihre Leistung zu verbessern und langfristigen Erfolg zu erzielen."
+    },
+    "q2": {
+      "question": "Welche Dienstleistungen bietet Baraka Institut an?",
+      "answer": "Wir bieten Business-Analyse-Beratung, Business-Analyst-Personalvermittlung (temporär oder dauerhaft), Geschäftsprozessmodellierung, Anforderungsworkshops sowie Bildungsvideokurse und Schulungen an."
+    },
+    "q3": {
+      "question": "Für wen sind Ihre Dienstleistungen?",
+      "answer": "Unsere Dienstleistungen sind für Unternehmen konzipiert, die Prozessoptimierung und Expertenanalysten suchen, Fachleute, die ihre Fähigkeiten erweitern, und Anfänger, die eine Karriere in der Business-Analyse beginnen."
+    },
+    "q4": {
+      "question": "Stellen Sie Business-Analysten für Unternehmen bereit?",
+      "answer": "Ja. Wir wählen erfahrene Business-Analysten aus und stellen sie ein, um Ihre Projekte zu unterstützen, Anforderungen zu verwalten und effektive Lösungen zu liefern."
+    },
+    "q5": {
+      "question": "Was unterscheidet Baraka Institut?",
+      "answer": "Wir kombinieren erschwingliche Bildung, reale Projekterfahrung und Mentoren mit über 5 Jahren Business-Analyst-Erfahrung in Top-Unternehmen – mit Fokus auf praktische Ergebnisse."
+    },
+    "q6": {
+      "question": "Bieten Sie Beratungsdienste an?",
+      "answer": "Ja. Wir bieten Beratung in Geschäftsprozessanalyse, Strategieentwicklung, Wettbewerbsanalyse und IT-Lösungsintegration."
+    },
+    "q7": {
+      "question": "Bieten Sie Schulungen für Business-Analysten an?",
+      "answer": "Ja. Wir bieten Videokurse und praktische Schulungen zu BPMN, UML, Anforderungserfassung und realer Projektpraxis."
+    },
+    "q8": {
+      "question": "Wie helfen Sie bei der Verbesserung von Geschäftsprozessen?",
+      "answer": "Wir analysieren, modellieren und optimieren Prozesse unter Verwendung von BPMN-Standards, Audits und Workshops, um Effizienz und Wettbewerbsfähigkeit zu steigern."
+    },
+    "q9": {
+      "question": "Können Sie bei der Erfassung von Geschäftsanforderungen helfen?",
+      "answer": "Ja. Wir führen Stakeholder-Interviews, Workshops und Brainstorming-Sitzungen durch, um klare und vollständige Anforderungen zu sammeln."
+    },
+    "q10": {
+      "question": "Wie kann ich beginnen?",
+      "answer": "Kontaktieren Sie uns über unsere Website, um Beratungs-, Personalvermittlungs- oder Schulungsoptionen zu besprechen."
+    },
+    "cta": {
+      "title": "Haben Sie noch Fragen?",
+      "description": "Unser Team ist bereit, Ihnen zu helfen, die richtige Lösung für Ihre Geschäftsbedürfnisse zu finden.",
+      "button": "Kontaktieren Sie uns"
+    }
+  }
+}

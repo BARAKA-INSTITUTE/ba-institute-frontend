@@ -4,6 +4,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 
 import enTranslation from './locales/en/translation.json';
 import frTranslation from './locales/fr/translation.json';
+import deTranslation from './locales/de/translation.json';
 
 const resources = {
   en: {
@@ -12,6 +13,9 @@ const resources = {
   fr: {
     translation: frTranslation,
   },
+  de: {
+    translation: deTranslation,
+  },
 };
 
 i18n
@@ -19,7 +23,6 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: 'en', // default language
     fallbackLng: 'en',
     debug: import.meta.env.DEV,
 
@@ -30,6 +33,7 @@ i18n
     detection: {
       order: ['localStorage', 'navigator'],
       caches: ['localStorage'],
+      lookupLocalStorage: 'i18nextLng',
     },
   });
 

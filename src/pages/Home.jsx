@@ -5,7 +5,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const About = React.lazy(() => import("./About"));
 const Services = React.lazy(() => import("./Services"));
-const Testimonials = React.lazy(() => import("./Testimonials"));
+const FAQ = React.lazy(() => import("./FAQ"));
+// const Testimonials = React.lazy(() => import("./Testimonials"));
 const Contact = React.lazy(() => import("./Contact"));
 
 gsap.registerPlugin(ScrollTrigger);
@@ -48,7 +49,7 @@ const Home = ({ isDarkMode }) => {
         className="relative overflow-hidden rounded-2xl mt-8 heroBanner"
         id="home"
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
+        <div className=" absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="max-w-xl">
@@ -79,9 +80,13 @@ const Home = ({ isDarkMode }) => {
           <Services isDarkMode={isDarkMode} />
         </section>
 
-        <section id="testimonials">
-          <Testimonials />
+        <section id="faq">
+          <FAQ isDarkMode={isDarkMode} />
         </section>
+
+        {/* <section id="testimonials">
+          <Testimonials />
+        </section> */}
 
         <section id="contact">
           <Contact />
