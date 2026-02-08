@@ -10,7 +10,7 @@ const Contact = () => {
   const { t } = useTranslation();
   const formRef = useRef(null);
   const containerRef = useRef(null);
-  
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -32,10 +32,12 @@ const Contact = () => {
           y: 0,
           duration: 1,
           ease: "power3.out",
-        }
+        },
       );
 
-      const formInputs = formRef.current?.querySelectorAll("input, textarea, button");
+      const formInputs = formRef.current?.querySelectorAll(
+        "input, textarea, button",
+      );
       gsap.fromTo(
         formInputs,
         { opacity: 0, y: 30 },
@@ -46,7 +48,7 @@ const Contact = () => {
           stagger: 0.1,
           delay: 0.3,
           ease: "power3.out",
-        }
+        },
       );
     });
 
@@ -85,7 +87,7 @@ const Contact = () => {
       ...prev,
       [name]: value,
     }));
-    
+
     // Clear error for this field when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({
@@ -97,7 +99,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -118,7 +120,7 @@ const Contact = () => {
       try {
         data = await response.json();
       } catch (parseError) {
-        console.error('Failed to parse response:', parseError);
+        console.error("Failed to parse response:", parseError);
         setSubmitStatus("error");
         setIsSubmitting(false);
         return;
@@ -132,12 +134,12 @@ const Contact = () => {
           phone: "",
           message: "",
         });
-        
+
         // Scroll to success message
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         setSubmitStatus("error");
-        console.error('Server error:', data.message || 'Unknown error');
+        console.error("Server error:", data.message || "Unknown error");
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -178,7 +180,8 @@ const Contact = () => {
                 />
               </svg>
               <p className="text-emerald-800 dark:text-emerald-200 font-medium">
-                Thank you! Your message has been sent successfully. We'll get back to you soon.
+                Thank you! Your message has been sent successfully. We'll get
+                back to you soon.
               </p>
             </div>
           </div>
@@ -209,13 +212,16 @@ const Contact = () => {
         )}
 
         {/* Contact Form */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12" ref={formRef}>
+        <div
+          className="light:bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12"
+          ref={formRef}
+        >
           <form onSubmit={handleSubmit} className="space-y-6" noValidate>
             {/* Name */}
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                className="block text-sm font-semibold  dark:text-white mb-2"
               >
                 {t("contactContent.form.firstName")} *
               </label>
@@ -244,7 +250,7 @@ const Contact = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                className="block text-sm font-semibold  dark:text-white mb-2"
               >
                 {t("contactContent.form.email")} *
               </label>
@@ -273,7 +279,7 @@ const Contact = () => {
             <div>
               <label
                 htmlFor="phone"
-                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+             className="block text-sm font-semibold  dark:text-white mb-2"
               >
                 Phone (Optional)
               </label>
@@ -293,7 +299,8 @@ const Contact = () => {
             <div>
               <label
                 htmlFor="message"
-                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                        className="block text-sm font-semibold  dark:text-white mb-2"
+
               >
                 {t("contactContent.form.message")} *
               </label>
@@ -332,9 +339,9 @@ const Contact = () => {
         </div>
 
         {/* Social Media Section */}
-        <div className="mt-12 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
+        <div className="mt-12 dark:bg-gray-800 light:bg-white  rounded-2xl shadow-xl p-8 md:p-12">
           <div className="text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+            <h2 className="text-2xl md:text-3xl font-bold   dark:text-white mb-3">
               {t("contactContent.connectWithUs")}
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
@@ -350,7 +357,9 @@ const Contact = () => {
                   className="group flex items-center justify-center w-14 h-14 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
                   aria-label={name}
                 >
-                  <i className={`${icon} text-2xl text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors`}></i>
+                  <i
+                    className={`${icon} text-2xl text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors`}
+                  ></i>
                 </a>
               ))}
             </div>
