@@ -53,10 +53,10 @@ const Home = ({ isDarkMode }) => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="max-w-xl">
-            <h1 ref={titleRef} className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 ref={titleRef} className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 leading-tight text-white">
               {t('hero.title')}
             </h1>
-            <p ref={textRef} className="text-lg sm:text-xl mb-8 opacity-90">
+            <p ref={textRef} className="text-lg sm:text-xl mb-8 opacity-90 text-white">
               {t('hero.subtitle')}
             </p>
             <button
