@@ -24,9 +24,9 @@ const footerLinks = [
  
 ]
 const socialLinks = [
-  { id: 1, name: "Telegram", icon: "fa-brands fa-telegram", url: "https://twitter.com" },
-  { id: 2, name: "LinkedIn", icon: "fa-brands fa-linkedin", url: "https://linkedin.com" },
-  { id: 3, name: "GitHub", icon: "fa-brands fa-github", url: "https://github.com" },
+  { id: 1, name: "Telegram", icon: "fa-brands fa-telegram", url: "https://t.me/barakahitinstitute" },
+  { id: 2, name: "LinkedIn", icon: "fa-brands fa-linkedin", url: "https://www.linkedin.com/company/barakah-it-institute/posts/?feedView=all" },
+  { id: 3, name: "GitHub", icon: "fa-brands fa-github", url: "https://github.com/barakahitinstitute" },
 ];
 
 const aboutUs = [

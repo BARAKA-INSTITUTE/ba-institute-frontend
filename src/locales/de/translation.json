@@ -114,6 +114,8 @@
   "contactContent": {
     "title": "Kontaktieren Sie uns",
     "subtitle": "Haben Sie Fragen? Senden Sie uns Ihre Anfrage und wir melden uns in Kürze.",
+    "connectWithUs": "Verbinden Sie sich mit uns",
+    "followUs": "Folgen Sie uns in den sozialen Medien, um über unsere neuesten Nachrichten und Erkenntnisse auf dem Laufenden zu bleiben.",
     "form": {
       "firstName": "Vorname",
       "lastName": "Nachname",

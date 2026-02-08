@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { socialLinks } from "@utils/constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -328,6 +329,32 @@ const Contact = () => {
                 : t("contactContent.form.submitButton")}
             </button>
           </form>
+        </div>
+
+        {/* Social Media Section */}
+        <div className="mt-12 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12">
+          <div className="text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-3">
+              {t("contactContent.connectWithUs")}
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 mb-8">
+              {t("contactContent.followUs")}
+            </p>
+            <div className="flex justify-center gap-6">
+              {socialLinks.map(({ id, icon, url, name }) => (
+                <a
+                  key={id}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center justify-center w-14 h-14 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-emerald-600 dark:hover:bg-emerald-600 transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-lg"
+                  aria-label={name}
+                >
+                  <i className={`${icon} text-2xl text-gray-700 dark:text-gray-300 group-hover:text-white transition-colors`}></i>
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Additional Info */}
