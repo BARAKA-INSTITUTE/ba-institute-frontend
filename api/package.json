@@ -4,7 +4,7 @@
   "description": "Serverless API for Barakah IT Institute contact form",
   "type": "module",
   "dependencies": {
-    "mongoose": "^8.0.0",
-    "resend": "^3.2.0"
+    "mongoose": "^9.1.6",
+    "resend": "^6.9.1"
   }
 }

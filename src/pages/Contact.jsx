@@ -11,9 +11,9 @@ const Contact = () => {
   const containerRef = useRef(null);
   
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    name: "",
     email: "",
+    phone: "",
     message: "",
   });
 
@@ -60,22 +60,18 @@ const Contact = () => {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = t("contactContent.form.errors.firstNameRequired");
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = t("contactContent.form.errors.lastNameRequired");
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = t("contactContent.form.errors.emailRequired");
+      newErrors.email = "Email is required";
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = t("contactContent.form.errors.emailInvalid");
+      newErrors.email = "Please enter a valid email";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = t("contactContent.form.errors.messageRequired");
+      newErrors.message = "Message is required";
     }
 
     setErrors(newErrors);
@@ -117,12 +113,14 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         setSubmitStatus("success");
         setFormData({
-          firstName: "",
-          lastName: "",
+          name: "",
           email: "",
+          phone: "",
           message: "",
         });
         
@@ -130,6 +128,7 @@ const Contact = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         setSubmitStatus("error");
+        console.error('Server error:', data.message);
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -170,7 +169,7 @@ const Contact = () => {
                 />
               </svg>
               <p className="text-emerald-800 dark:text-emerald-200 font-medium">
-                {t("contactContent.form.successMessage")}
+                Thank you! Your message has been sent successfully. We'll get back to you soon.
               </p>
             </div>
           </div>
@@ -194,7 +193,7 @@ const Contact = () => {
                 />
               </svg>
               <p className="text-red-800 dark:text-red-200 font-medium">
-                {t("contactContent.form.errorMessage")}
+                Failed to send message. Please try again or contact us directly.
               </p>
             </div>
           </div>
@@ -203,60 +202,31 @@ const Contact = () => {
         {/* Contact Form */}
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12" ref={formRef}>
           <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-            {/* First Name */}
+            {/* Name */}
             <div>
               <label
-                htmlFor="firstName"
+                htmlFor="name"
                 className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
               >
                 {t("contactContent.form.firstName")} *
               </label>
               <input
                 type="text"
-                id="firstName"
-                name="firstName"
-                value={formData.firstName}
+                id="name"
+                name="name"
+                value={formData.name}
                 onChange={handleChange}
                 className={`w-full px-4 py-3 rounded-lg border ${
-                  errors.firstName
+                  errors.name
                     ? "border-red-500 focus:ring-red-500"
                     : "border-gray-300 dark:border-gray-600 focus:ring-emerald-500"
                 } bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-colors`}
-                placeholder={t("contactContent.form.firstNamePlaceholder")}
+                placeholder="Your full name"
                 disabled={isSubmitting}
               />
-              {errors.firstName && (
+              {errors.name && (
                 <p className="mt-1 text-sm text-red-600 dark:text-red-400">
-                  {errors.firstName}
-                </p>
-              )}
-            </div>
-
-            {/* Last Name */}
-            <div>
-              <label
-                htmlFor="lastName"
-                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
-              >
-                {t("contactContent.form.lastName")} *
-              </label>
-              <input
-                type="text"
-                id="lastName"
-                name="lastName"
-                value={formData.lastName}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 rounded-lg border ${
-                  errors.lastName
-                    ? "border-red-500 focus:ring-red-500"
-                    : "border-gray-300 dark:border-gray-600 focus:ring-emerald-500"
-                } bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-colors`}
-                placeholder={t("contactContent.form.lastNamePlaceholder")}
-                disabled={isSubmitting}
-              />
-              {errors.lastName && (
-                <p className="mt-1 text-sm text-red-600 dark:text-red-400">
-                  {errors.lastName}
+                  {errors.name}
                 </p>
               )}
             </div>
@@ -288,6 +258,26 @@ const Contact = () => {
                   {errors.email}
                 </p>
               )}
+            </div>
+
+            {/* Phone (Optional) */}
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+              >
+                Phone (Optional)
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 focus:ring-emerald-500 bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 transition-colors"
+                placeholder="(555) 555-5555"
+                disabled={isSubmitting}
+              />
             </div>
 
             {/* Message */}

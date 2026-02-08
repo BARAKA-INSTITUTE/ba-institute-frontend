@@ -1,155 +1,82 @@
-// API Route for handling contact form submissions
-// This is a serverless function compatible with Vercel
-
+import { connectToDatabase } from './lib/db.js';
+import { ContactEntry } from './models/ContactEntry.js';
 import { Resend } from 'resend';
-import mongoose from 'mongoose';
 
-// Initialize Resend with your API key
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-// MongoDB connection caching
-let cached = global.mongoose;
-
-if (!cached) {
-  cached = global.mongoose = { conn: null, promise: null };
-}
-
-async function connectToDatabase() {
-  if (cached.conn) {
-    return cached.conn;
-  }
-
-  if (!cached.promise) {
-    const connectionUri = process.env.MONGODB_URI;
-    if (!connectionUri) {
-      throw new Error('MONGODB_URI is not set in environment variables');
-    }
-
-    cached.promise = mongoose.connect(connectionUri, {
-      bufferCommands: false,
-      serverSelectionTimeoutMS: 5000,
-    });
-  }
-
-  cached.conn = await cached.promise;
-  return cached.conn;
-}
-
-// Inquiry Schema
-const inquirySchema = new mongoose.Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  email: { type: String, required: true },
-  message: { type: String, required: true },
-  status: { type: String, default: 'pending' },
-  createdAt: { type: Date, default: Date.now }
-});
-
-// Check if model exists to prevent recompilation in serverless
-const Inquiry = mongoose.models.Inquiry || mongoose.model('Inquiry', inquirySchema);
+const resendApiKey = process.env.RESEND_API_KEY;
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 export default async function handler(req, res) {
-  // Only allow POST requests
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
+    return res.status(405).json({ message: 'Method not allowed' });
   }
 
   try {
-    const { firstName, lastName, email, message } = req.body;
+    const { name, email, phone, message } = req.body;
 
     // Validate required fields
-    if (!firstName || !lastName || !email || !message) {
-      return res.status(400).json({ error: 'All fields are required' });
+    if (!name || !email || !message) {
+      return res.status(400).json({ 
+        message: 'Name, email, and message are required' 
+      });
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ error: 'Invalid email format' });
- }
+      return res.status(400).json({ message: 'Invalid email format' });
+    }
 
-    // Connect to MongoDB and save the inquiry
+    // Connect to MongoDB
     await connectToDatabase();
-    
-    const inquiry = await Inquiry.create({
-      firstName: firstName.trim(),
-      lastName: lastName.trim(),
+
+    // Save to database
+    await ContactEntry.create({
+      name: name.trim(),
       email: email.trim().toLowerCase(),
+      phone: phone?.trim() || '',
       message: message.trim(),
-      status: 'pending'
     });
 
-    // Send email via Resend
-    const ownerEmail = process.env.OWNER_EMAIL || 'info@barakah-it.com';
-    
-    await resend.emails.send({
-      from: 'Barakah IT Contact Form <noreply@barakah-it.com>',
-      to: ownerEmail,
-      replyTo: email,
-      subject: `New Contact Inquiry from ${firstName} ${lastName}`,
-      html: `
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="utf-8">
-            <style>
-              body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-              .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-              .header { background-color: #10b981; color: white; padding: 20px; border-radius: 8px 8px 0 0; }
-              .content { background-color: #f9fafb; padding: 30px; border: 1px solid #e5e7eb; }
-              .field { margin-bottom: 20px; }
-              .label { font-weight: bold; color: #059669; margin-bottom: 5px; }
-              .value { background-color: white; padding: 10px; border-radius: 4px; border: 1px solid #d1d5db; }
-              .footer { text-align: center; margin-top: 20px; color: #6b7280; font-size: 12px; }
-            </style>
-          </head>
-          <body>
-            <div class="container">
-              <div class="header">
-                <h1 style="margin: 0;">New Contact Inquiry</h1>
-              </div>
-              <div class="content">
-                <div class="field">
-                  <div class="label">From:</div>
-                  <div class="value">${firstName} ${lastName}</div>
-                </div>
-                <div class="field">
-                  <div class="label">Email:</div>
-                  <div class="value"><a href="mailto:${email}">${email}</a></div>
-                </div>
-                <div class="field">
-                  <div class="label">Message:</div>
-                  <div class="value">${message.replace(/\n/g, '<br>')}</div>
-                </div>
-                <div class="field">
-                  <div class="label">Submitted:</div>
-                  <div class="value">${new Date().toLocaleString()}</div>
-                </div>
-                <div class="field">
-                  <div class="label">Inquiry ID:</div>
-                  <div class="value">${result.insertedId}</div>
-                </div>
-              </div>inquiry._i
-              <div class="footer">
-                <p>This inquiry has been automatically saved to your database.</p>
-                <p>&copy; ${new Date().getFullYear()} Barakah IT Institute. All rights reserved.</p>
-              </div>
+    // Send email notification (optional - won't fail if not configured)
+    if (resend) {
+      try {
+        const ownerEmail = process.env.OWNER_EMAIL || 'info@barakah-it.com';
+        
+        await resend.emails.send({
+          from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
+          to: ownerEmail,
+          replyTo: email,
+          subject: `New Contact Message from ${name}`,
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px;">
+              <h2 style="color: #333;">📧 New Contact Message</h2>
+              <hr style="border: none; border-top: 2px solid #eee; margin: 20px 0;" />
+              
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${email}</p>
+              <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+              <p><strong>Message:</strong></p>
+              <p style="background: #f5f5f5; padding: 15px; border-radius: 5px;">${message.replace(/\n/g, '<br>')}</p>
+              
+              <hr style="border: none; border-top: 2px solid #eee; margin: 20px 0;" />
+              <p style="color: #666; font-size: 12px;">Submitted at ${new Date().toLocaleString()}</p>
             </div>
-          </body>
-        </html>
-      `,
-    });
+          `,
+        });
+        console.log('[contact] Email sent successfully');
+      } catch (emailError) {
+        console.error('[contact] Email sending failed:', emailError);
+        // Don't fail the request if email fails
+      }
+    } else {
+      console.warn('[contact] RESEND_API_KEY not configured; skipping email');
+    }
 
-    return res.status(200).json({
-      success: true,
-      message: 'Inquiry submitted successfully',
-      inquiryId: inquiry._id,
-    });
+    return res.status(201).json({ message: 'Contact message received' });
   } catch (error) {
-    console.error('Contact form error:', error);
+    console.error('Contact API error:', error);
     return res.status(500).json({
-      error: 'Failed to submit inquiry',
-      details: process.env.NODE_ENV === 'development' ? error.message : undefined,
+      message: 'Unable to submit message at this time',
     });
   }
 }
