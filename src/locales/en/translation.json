@@ -173,9 +173,86 @@
 
 
   "hero": {
-    "title": "Unlock Insights with Data-Driven Solutions",
-    "subtitle": "Transform your business decisions with practical analytics and smart solutions.",
-    "button": "Get Started"
+    "title": "Transform Your Career with Barakah IT Institute",
+    "subtitle": "Master Business Analysis through practical training, expert mentorship, and real-world projects.",
+    "ctaExplore": "Explore Programs",
+    "ctaContact": "Contact Us"
+  },
+  "homeIntro": {
+    "title": "Barakah IT Institute",
+    "description": "Barakah IT Institute is a remote-first Business Analysis training academy dedicated to transforming aspiring and practicing professionals into career-ready Business Analysts. We bridge the gap between academic theory and industry demands through practical, hands-on learning experiences."
+  },
+  "programsOverview": {
+    "title": "Our IT Programs & Services",
+    "subtitle": "Comprehensive learning paths designed for real-world success",
+    "programs": [
+      {
+        "title": "Business Analysis Foundations",
+        "description": "Master core BA concepts, requirements gathering, and stakeholder management",
+        "icon": "📊"
+      },
+      {
+        "title": "Advanced Process Modeling",
+        "description": "Deep dive into BPMN, UML, and business process optimization techniques",
+        "icon": "🔄"
+      },
+      {
+        "title": "Requirements Engineering",
+        "description": "Learn elicitation, analysis, documentation, and validation of requirements",
+        "icon": "📋"
+      },
+      {
+        "title": "Agile BA Practices",
+        "description": "Business Analysis in Agile environments, user stories, and sprint planning",
+        "icon": "⚡"
+      },
+      {
+        "title": "Data Analysis for BAs",
+        "description": "Leverage data analytics, SQL, and visualization tools for better insights",
+        "icon": "📈"
+      },
+      {
+        "title": "Career Mentorship Program",
+        "description": "One-on-one guidance, resume building, interview prep, and job placement support",
+        "icon": "🎯"
+      }
+    ]
+  },
+  "valueProposition": {
+    "title": "Why Choose Barakah IT Institute?",
+    "subtitle": "Invest in your future with proven benefits",
+    "benefits": [
+      {
+        "title": "Practical, Hands-On Skills",
+        "description": "Work on real-world projects and case studies that mirror actual business scenarios. Build a portfolio that demonstrates your capabilities to potential employers.",
+        "icon": "🛠️"
+      },
+      {
+        "title": "Experienced Industry Instructors",
+        "description": "Learn from Business Analysts with 5+ years of experience at top-tier companies. Get insider knowledge and industry best practices directly from the field.",
+        "icon": "👨‍🏫"
+      },
+      {
+        "title": "Comprehensive Career Support",
+        "description": "Receive personalized mentorship, resume reviews, interview coaching, and job placement assistance. We're invested in your career success from day one.",
+        "icon": "🚀"
+      },
+      {
+        "title": "Remote-First Flexibility",
+        "description": "Learn from anywhere in the world at your own pace. Our remote-first approach ensures you can balance learning with work and personal commitments.",
+        "icon": "🌍"
+      },
+      {
+        "title": "Career-Ready Curriculum",
+        "description": "Industry-aligned course content designed to make you job-ready from day one. Learn exactly what employers are looking for in Business Analysts.",
+        "icon": "📚"
+      },
+      {
+        "title": "Lifetime Learning Community",
+        "description": "Join a network of alumni and professionals. Access ongoing resources, workshops, and networking opportunities long after course completion.",
+        "icon": "🤝"
+      }
+    ]
   },
   "loading": "Loading...",
   "faqPage": {

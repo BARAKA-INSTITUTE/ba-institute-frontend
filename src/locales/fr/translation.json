@@ -170,9 +170,86 @@
     "copyright": "© {{year}} Baraka Institute. Tous droits réservés."
   },
   "hero": {
-    "title": "Débloquez les Insights avec des Solutions Axées sur les Données",
-    "subtitle": "Transformez vos décisions d'affaires avec des analyses pratiques et des solutions intelligentes.",
-    "button": "Commencer"
+    "title": "Transformez Votre Carrière avec Barakah IT Institute",
+    "subtitle": "Maîtrisez l'Analyse d'Affaires grâce à une formation pratique, un mentorat d'experts et des projets réels.",
+    "ctaExplore": "Explorer les Programmes",
+    "ctaContact": "Contactez-nous"
+  },
+  "homeIntro": {
+    "title": "Barakah IT Institute",
+    "description": "Barakah IT Institute est une académie de formation en Analyse d'Affaires à distance qui transforme les professionnels aspirants et pratiquants en analystes d'affaires prêts pour leur carrière. Nous comblons le fossé entre la théorie académique et les exigences de l'industrie grâce à des expériences d'apprentissage pratiques."
+  },
+  "programsOverview": {
+    "title": "Nos Programmes & Services IT",
+    "subtitle": "Parcours d'apprentissage complets conçus pour le succès réel",
+    "programs": [
+      {
+        "title": "Fondements de l'Analyse d'Affaires",
+        "description": "Maîtrisez les concepts BA de base, la collecte des exigences et la gestion des parties prenantes",
+        "icon": "📊"
+      },
+      {
+        "title": "Modélisation Avancée des Processus",
+        "description": "Plongez dans BPMN, UML et les techniques d'optimisation des processus métier",
+        "icon": "🔄"
+      },
+      {
+        "title": "Ingénierie des Exigences",
+        "description": "Apprenez l'élicitation, l'analyse, la documentation et la validation des exigences",
+        "icon": "📋"
+      },
+      {
+        "title": "Pratiques BA Agile",
+        "description": "Analyse d'affaires dans les environnements Agile, user stories et planification de sprint",
+        "icon": "⚡"
+      },
+      {
+        "title": "Analyse de Données pour BA",
+        "description": "Exploitez l'analyse de données, SQL et les outils de visualisation pour de meilleures perspectives",
+        "icon": "📈"
+      },
+      {
+        "title": "Programme de Mentorat de Carrière",
+        "description": "Accompagnement individuel, création de CV, préparation aux entretiens et aide au placement",
+        "icon": "🎯"
+      }
+    ]
+  },
+  "valueProposition": {
+    "title": "Pourquoi Choisir Barakah IT Institute?",
+    "subtitle": "Investissez dans votre avenir avec des avantages éprouvés",
+    "benefits": [
+      {
+        "title": "Compétences Pratiques",
+        "description": "Travaillez sur des projets réels et des études de cas qui reflètent des scénarios commerciaux réels. Créez un portfolio qui démontre vos capacités aux employeurs potentiels.",
+        "icon": "🛠️"
+      },
+      {
+        "title": "Instructeurs Expérimentés de l'Industrie",
+        "description": "Apprenez auprès d'Analystes d'Affaires avec plus de 5 ans d'expérience dans des entreprises de premier plan. Obtenez des connaissances d'initiées et les meilleures pratiques directement du terrain.",
+        "icon": "👨‍🏫"
+      },
+      {
+        "title": "Support de Carrière Complet",
+        "description": "Recevez un mentorat personnalisé, des révisions de CV, un coaching d'entretien et une assistance au placement. Nous investissons dans votre réussite professionnelle dès le premier jour.",
+        "icon": "🚀"
+      },
+      {
+        "title": "Flexibilité à Distance",
+        "description": "Apprenez de n'importe où dans le monde à votre propre rythme. Notre approche à distance vous permet d'équilibrer l'apprentissage avec le travail et les engagements personnels.",
+        "icon": "🌍"
+      },
+      {
+        "title": "Programme Prêt pour la Carrière",
+        "description": "Contenu de cours aligné sur l'industrie conçu pour vous rendre opérationnel dès le premier jour. Apprenez exactement ce que les employeurs recherchent chez les Analystes d'Affaires.",
+        "icon": "📚"
+      },
+      {
+        "title": "Communauté d'Apprentissage à Vie",
+        "description": "Rejoignez un réseau d'anciens élèves et de professionnels. Accédez à des ressources continues, des ateliers et des opportunités de réseautage longtemps après la fin du cours.",
+        "icon": "🤝"
+      }
+    ]
   },
   "loading": "Chargement...",
   "faqPage": {

@@ -27,3 +27,52 @@ body.dark input::placeholder,
 body.dark textarea::placeholder {
     color: #cbd5e1 !important;
 }
+
+/* Home Page Specific Styles */
+.program-card,
+.benefit-card {
+    transition: all 0.3s ease-in-out;
+}
+
+.program-card:hover,
+.benefit-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive CTA Buttons */
+@media (max-width: 640px) {
+    .hero-cta-buttons {
+        width: 100%;
+    }
+    
+    .hero-cta-buttons button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure sections are properly spaced */
+section {
+    scroll-margin-top: 80px;
+}
+
+/* Hero banner background */
+.heroBanner {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.6) 0%, rgba(30, 41, 59, 0.6) 50%, rgba(51, 65, 85, 0.6) 100%), url('/hero-banner-main.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .heroBanner {
+        min-height: 400px;
+    }
+}

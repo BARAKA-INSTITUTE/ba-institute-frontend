@@ -170,9 +170,86 @@
     "copyright": "© {{year}} Baraka Institut. Alle Rechte vorbehalten."
   },
   "hero": {
-    "title": "Erkenntnisse durch datengetriebene Lösungen freischalten",
-    "subtitle": "Transformieren Sie Ihre Geschäftsentscheidungen mit praktischen Analysen und intelligenten Lösungen.",
-    "button": "Loslegen"
+    "title": "Transformieren Sie Ihre Karriere mit Barakah IT Institute",
+    "subtitle": "Meistern Sie Business Analysis durch praktisches Training, Experten-Mentoring und reale Projekte.",
+    "ctaExplore": "Programme erkunden",
+    "ctaContact": "Kontaktieren Sie uns"
+  },
+  "homeIntro": {
+    "title": "Barakah IT Institute",
+    "description": "Barakah IT Institute ist eine Remote-First Business Analysis Trainings-Akademie, die aufstrebende und praktizierende Fachleute in karrierebereite Business Analysten verwandelt. Wir überbrücken die Lücke zwischen akademischer Theorie und Branchenanforderungen durch praktische, hands-on Lernerfahrungen."
+  },
+  "programsOverview": {
+    "title": "Unsere IT-Programme & Services",
+    "subtitle": "Umfassende Lernpfade für realen Erfolg",
+    "programs": [
+      {
+        "title": "Business Analysis Grundlagen",
+        "description": "Meistern Sie grundlegende BA-Konzepte, Anforderungserfassung und Stakeholder-Management",
+        "icon": "📊"
+      },
+      {
+        "title": "Fortgeschrittene Prozessmodellierung",
+        "description": "Vertiefen Sie sich in BPMN, UML und Geschäftsprozess-Optimierungstechniken",
+        "icon": "🔄"
+      },
+      {
+        "title": "Requirements Engineering",
+        "description": "Lernen Sie Erhebung, Analyse, Dokumentation und Validierung von Anforderungen",
+        "icon": "📋"
+      },
+      {
+        "title": "Agile BA Praktiken",
+        "description": "Business Analysis in agilen Umgebungen, User Stories und Sprint-Planung",
+        "icon": "⚡"
+      },
+      {
+        "title": "Datenanalyse für BAs",
+        "description": "Nutzen Sie Datenanalyse, SQL und Visualisierungstools für bessere Erkenntnisse",
+        "icon": "📈"
+      },
+      {
+        "title": "Karriere-Mentoring-Programm",
+        "description": "Persönliche Betreuung, Lebenslauf-Erstellung, Interviewvorbereitung und Jobvermittlung",
+        "icon": "🎯"
+      }
+    ]
+  },
+  "valueProposition": {
+    "title": "Warum Barakah IT Institute?",
+    "subtitle": "Investieren Sie in Ihre Zukunft mit bewährten Vorteilen",
+    "benefits": [
+      {
+        "title": "Praktische Hands-On Fähigkeiten",
+        "description": "Arbeiten Sie an realen Projekten und Fallstudien, die tatsächliche Geschäftsszenarien widerspiegeln. Erstellen Sie ein Portfolio, das Ihre Fähigkeiten potenziellen Arbeitgebern zeigt.",
+        "icon": "🛠️"
+      },
+      {
+        "title": "Erfahrene Branchen-Instruktoren",
+        "description": "Lernen Sie von Business Analysten mit mehr als 5 Jahren Erfahrung bei Top-Unternehmen. Erhalten Sie Insider-Wissen und Best Practices direkt aus der Praxis.",
+        "icon": "👨‍🏫"
+      },
+      {
+        "title": "Umfassende Karriereunterstützung",
+        "description": "Erhalten Sie persönliches Mentoring, Lebenslauf-Reviews, Interview-Coaching und Jobvermittlung. Wir investieren in Ihren Karriereerfolg vom ersten Tag an.",
+        "icon": "🚀"
+      },
+      {
+        "title": "Remote-First Flexibilität",
+        "description": "Lernen Sie von überall auf der Welt in Ihrem eigenen Tempo. Unser Remote-First-Ansatz ermöglicht es Ihnen, Lernen mit Arbeit und persönlichen Verpflichtungen zu vereinbaren.",
+        "icon": "🌍"
+      },
+      {
+        "title": "Karrierebereiter Lehrplan",
+        "description": "Branchenorientierte Kursinhalte, die Sie vom ersten Tag an arbeitsfähig machen. Lernen Sie genau das, was Arbeitgeber von Business Analysten erwarten.",
+        "icon": "📚"
+      },
+      {
+        "title": "Lebenslange Lerngemeinschaft",
+        "description": "Treten Sie einem Netzwerk von Alumni und Fachleuten bei. Zugang zu fortlaufenden Ressourcen, Workshops und Networking-Möglichkeiten auch nach Kursabschluss.",
+        "icon": "🤝"
+      }
+    ]
   },
   "loading": "Laden...",
   "faqPage": {
