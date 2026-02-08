@@ -6,6 +6,9 @@ const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 export default async function handler(req, res) {
+  // Set JSON content type
+  res.setHeader('Content-Type', 'application/json');
+  
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
@@ -72,11 +75,27 @@ export default async function handler(req, res) {
       console.warn('[contact] RESEND_API_KEY not configured; skipping email');
     }
 
-    return res.status(201).json({ message: 'Contact message received' });
+    return res.status(201).json({ 
+      success: true,
+      message: 'Contact message received' 
+    });
   } catch (error) {
     console.error('Contact API error:', error);
+    
+    // Determine specific error message
+    let errorMessage = 'Unable to submit message at this time';
+    if (error.message?.includes('MONGODB_URI')) {
+      errorMessage = 'Database configuration error';
+    } else if (error.message?.includes('Database connection')) {
+      errorMessage = 'Database connection failed';
+    } else if (error.name === 'ValidationError') {
+      errorMessage = 'Invalid data provided';
+    }
+    
     return res.status(500).json({
-      message: 'Unable to submit message at this time',
+      success: false,
+      message: errorMessage,
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined
     });
   }
 }

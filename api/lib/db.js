@@ -17,11 +17,22 @@ export async function connectToDatabase() {
       throw new Error("MONGODB_URI is not set in environment variables");
     }
 
-    cached.promise = mongoose.connect(connectionUri, {
-      serverSelectionTimeoutMS: 5000,
-    });
+    try {
+      cached.promise = mongoose.connect(connectionUri, {
+        serverSelectionTimeoutMS: 10000,
+        socketTimeoutMS: 45000,
+      });
+    } catch (err) {
+      cached.promise = null;
+      throw err;
+    }
   }
 
-  cached.conn = await cached.promise;
-  return cached.conn;
+  try {
+    cached.conn = await cached.promise;
+    return cached.conn;
+  } catch (err) {
+    cached.promise = null;
+    throw new Error(`Database connection failed: ${err.message}`);
+  }
 }

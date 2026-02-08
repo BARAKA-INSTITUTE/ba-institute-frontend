@@ -113,9 +113,17 @@ const Contact = () => {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (parseError) {
+        console.error('Failed to parse response:', parseError);
+        setSubmitStatus("error");
+        setIsSubmitting(false);
+        return;
+      }
 
-      if (response.ok) {
+      if (response.ok && data.success) {
         setSubmitStatus("success");
         setFormData({
           name: "",
@@ -128,7 +136,7 @@ const Contact = () => {
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
         setSubmitStatus("error");
-        console.error('Server error:', data.message);
+        console.error('Server error:', data.message || 'Unknown error');
       }
     } catch (error) {
       console.error("Form submission error:", error);
