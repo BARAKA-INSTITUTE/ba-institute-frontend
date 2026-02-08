@@ -1,16 +1,16 @@
-import { connectToDatabase } from './lib/db.js';
-import { ContactEntry } from './models/ContactEntry.js';
-import { Resend } from 'resend';
-
-const resendApiKey = process.env.RESEND_API_KEY;
-const resend = resendApiKey ? new Resend(resendApiKey) : null;
-
 export default async function handler(req, res) {
-  // Set JSON content type
+  // CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
   res.setHeader('Content-Type', 'application/json');
-  
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
-    return res.status(405).json({ message: 'Method not allowed' });
+    return res.status(405).json({ success: false, message: 'Method not allowed' });
   }
 
   try {
@@ -18,33 +18,44 @@ export default async function handler(req, res) {
 
     // Validate required fields
     if (!name || !email || !message) {
-      return res.status(400).json({ 
-        message: 'Name, email, and message are required' 
+      return res.status(400).json({
+        success: false,
+        message: 'Name, email, and message are required',
       });
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return res.status(400).json({ message: 'Invalid email format' });
+      return res.status(400).json({ success: false, message: 'Invalid email format' });
     }
+
+    // Dynamic imports inside try/catch so module errors return JSON, not HTML
+    const { connectToDatabase } = await import('./lib/db.js');
+    const { ContactEntry } = await import('./models/ContactEntry.js');
 
     // Connect to MongoDB
     await connectToDatabase();
 
     // Save to database
-    await ContactEntry.create({
+    const entry = await ContactEntry.create({
       name: name.trim(),
       email: email.trim().toLowerCase(),
       phone: phone?.trim() || '',
       message: message.trim(),
     });
 
-    // Send email notification (optional - won't fail if not configured)
-    if (resend) {
+    console.log('[contact] Saved to DB:', entry._id);
+
+    // Send email notification via Resend (optional – won't fail the request)
+    const resendApiKey = process.env.RESEND_API_KEY;
+    if (resendApiKey) {
       try {
+        const { Resend } = await import('resend');
+        const resend = new Resend(resendApiKey);
+
         const ownerEmail = process.env.OWNER_EMAIL || 'info@barakah-it.com';
-        
+
         await resend.emails.send({
           from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
           to: ownerEmail,
@@ -52,37 +63,34 @@ export default async function handler(req, res) {
           subject: `New Contact Message from ${name}`,
           html: `
             <div style="font-family: Arial, sans-serif; max-width: 600px;">
-              <h2 style="color: #333;">📧 New Contact Message</h2>
+              <h2 style="color: #333;">New Contact Message</h2>
               <hr style="border: none; border-top: 2px solid #eee; margin: 20px 0;" />
-              
               <p><strong>Name:</strong> ${name}</p>
               <p><strong>Email:</strong> ${email}</p>
               <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
               <p><strong>Message:</strong></p>
               <p style="background: #f5f5f5; padding: 15px; border-radius: 5px;">${message.replace(/\n/g, '<br>')}</p>
-              
               <hr style="border: none; border-top: 2px solid #eee; margin: 20px 0;" />
-              <p style="color: #666; font-size: 12px;">Submitted at ${new Date().toLocaleString()}</p>
+              <p style="color: #666; font-size: 12px;">Submitted at ${new Date().toISOString()}</p>
             </div>
           `,
         });
         console.log('[contact] Email sent successfully');
       } catch (emailError) {
-        console.error('[contact] Email sending failed:', emailError);
-        // Don't fail the request if email fails
+        // Log but don't fail the request
+        console.error('[contact] Email sending failed:', emailError.message || emailError);
       }
     } else {
       console.warn('[contact] RESEND_API_KEY not configured; skipping email');
     }
 
-    return res.status(201).json({ 
+    return res.status(201).json({
       success: true,
-      message: 'Contact message received' 
+      message: 'Contact message received',
     });
   } catch (error) {
     console.error('Contact API error:', error);
-    
-    // Determine specific error message
+
     let errorMessage = 'Unable to submit message at this time';
     if (error.message?.includes('MONGODB_URI')) {
       errorMessage = 'Database configuration error';
@@ -91,11 +99,11 @@ export default async function handler(req, res) {
     } else if (error.name === 'ValidationError') {
       errorMessage = 'Invalid data provided';
     }
-    
+
     return res.status(500).json({
       success: false,
       message: errorMessage,
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined
+      error: process.env.NODE_ENV === 'development' ? error.message : undefined,
     });
   }
 }
