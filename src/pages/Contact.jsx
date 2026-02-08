@@ -21,6 +21,7 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error' | null
+  const [debugInfo, setDebugInfo] = useState(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -121,6 +122,19 @@ const Contact = () => {
         data = await response.json();
       } catch (parseError) {
         console.error("Failed to parse response:", parseError);
+        console.error("Response status:", response.status);
+        console.error("Response headers:", Object.fromEntries(response.headers.entries()));
+
+        // Try to get the raw text response
+        const rawText = await response.text();
+        console.error("Raw response text:", rawText.substring(0, 500));
+
+        setDebugInfo({
+          status: response.status,
+          statusText: response.statusText,
+          rawResponse: rawText.substring(0, 200)
+        });
+
         setSubmitStatus("error");
         setIsSubmitting(false);
         return;
@@ -140,10 +154,23 @@ const Contact = () => {
       } else {
         setSubmitStatus("error");
         console.error("Server error:", data.message || "Unknown error");
+        console.error("Full server response:", data);
+
+        setDebugInfo({
+          status: response.status,
+          serverMessage: data.message,
+          debug: data.debug
+        });
       }
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");
+
+      setDebugInfo({
+        networkError: true,
+        errorMessage: error.message,
+        errorName: error.name
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -208,6 +235,18 @@ const Contact = () => {
                 Failed to send message. Please try again or contact us directly.
               </p>
             </div>
+            {debugInfo && (
+              <details className="mt-4">
+                <summary className="cursor-pointer text-sm text-red-700 dark:text-red-300 font-medium">
+                  Debug Information (Click to expand)
+                </summary>
+                <div className="mt-2 p-3 bg-red-50 dark:bg-red-950/50 rounded border text-xs font-mono">
+                  <pre className="whitespace-pre-wrap text-red-800 dark:text-red-200">
+                    {JSON.stringify(debugInfo, null, 2)}
+                  </pre>
+                </div>
+              </details>
+            )}
           </div>
         )}
 

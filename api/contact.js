@@ -89,6 +89,9 @@ export default async function handler(req, res) {
     });
   } catch (error) {
     console.error('Contact API error:', error);
+    console.error('Error stack:', error.stack);
+    console.error('Error name:', error.name);
+    console.error('Error message:', error.message);
 
     let errorMessage = 'Unable to submit message at this time';
     if (error.message?.includes('MONGODB_URI')) {
@@ -99,9 +102,15 @@ export default async function handler(req, res) {
       errorMessage = 'Invalid data provided';
     }
 
+    // Ensure we always return JSON
     return res.status(500).json({
       success: false,
       message: errorMessage,
+      debug: process.env.NODE_ENV === 'development' ? {
+        errorName: error.name,
+        errorMessage: error.message,
+        stack: error.stack
+      } : undefined
     });
   }
 }
