@@ -7,9 +7,7 @@ if (!cached) {
 }
 
 export async function connectToDatabase() {
-  if (cached.conn) {
-    return cached.conn;
-  }
+  if (cached.conn) return cached.conn;
 
   if (!cached.promise) {
     const connectionUri = process.env.MONGODB_URI;
@@ -17,15 +15,9 @@ export async function connectToDatabase() {
       throw new Error("MONGODB_URI is not set in environment variables");
     }
 
-    try {
-      cached.promise = mongoose.connect(connectionUri, {
-        serverSelectionTimeoutMS: 10000,
-        socketTimeoutMS: 45000,
-      });
-    } catch (err) {
-      cached.promise = null;
-      throw err;
-    }
+    cached.promise = mongoose.connect(connectionUri, {
+      serverSelectionTimeoutMS: 5000,
+    });
   }
 
   try {

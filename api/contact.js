@@ -1,3 +1,6 @@
+import { connectToDatabase } from './lib/db.js';
+import { ContactEntry } from './models/ContactEntry.js';
+
 export default async function handler(req, res) {
   // CORS headers
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -30,10 +33,6 @@ export default async function handler(req, res) {
       return res.status(400).json({ success: false, message: 'Invalid email format' });
     }
 
-    // Dynamic imports inside try/catch so module errors return JSON, not HTML
-    const { connectToDatabase } = await import('./lib/db.js');
-    const { ContactEntry } = await import('./models/ContactEntry.js');
-
     // Connect to MongoDB
     await connectToDatabase();
 
@@ -54,11 +53,12 @@ export default async function handler(req, res) {
         const { Resend } = await import('resend');
         const resend = new Resend(resendApiKey);
 
-        const ownerEmail = process.env.OWNER_EMAIL || 'info@barakah-it.com';
+        const fromEmail = process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev';
+        const notificationEmail = process.env.NOTIFICATION_EMAIL || 'info@barakah-it.com';
 
         await resend.emails.send({
-          from: process.env.RESEND_FROM_EMAIL || 'onboarding@resend.dev',
-          to: ownerEmail,
+          from: fromEmail,
+          to: notificationEmail,
           replyTo: email,
           subject: `New Contact Message from ${name}`,
           html: `
@@ -77,7 +77,6 @@ export default async function handler(req, res) {
         });
         console.log('[contact] Email sent successfully');
       } catch (emailError) {
-        // Log but don't fail the request
         console.error('[contact] Email sending failed:', emailError.message || emailError);
       }
     } else {
@@ -103,7 +102,6 @@ export default async function handler(req, res) {
     return res.status(500).json({
       success: false,
       message: errorMessage,
-      error: process.env.NODE_ENV === 'development' ? error.message : undefined,
     });
   }
 }
