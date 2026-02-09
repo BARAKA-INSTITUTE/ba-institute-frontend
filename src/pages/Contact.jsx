@@ -156,6 +156,14 @@ const Contact = () => {
         console.error("Server error:", data.message || "Unknown error");
         console.error("Full server response:", data);
 
+        // If the error is related to a specific field (like email domain validation)
+        if (data.field) {
+          setErrors((prev) => ({
+            ...prev,
+            [data.field]: data.message
+          }));
+        }
+
         setDebugInfo({
           status: response.status,
           serverMessage: data.message,

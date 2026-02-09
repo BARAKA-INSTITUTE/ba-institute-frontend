@@ -1,5 +1,73 @@
 import { connectToDatabase } from './lib/db.js';
 import { ContactEntry } from './models/ContactEntry.js';
+import dns from 'dns';
+import { promisify } from 'util';
+
+const resolveMx = promisify(dns.resolveMx);
+
+/**
+ * Verify email domain has valid MX records
+ * @param {string} email - Email address to verify
+ * @returns {Promise<{valid: boolean, message: string}>}
+ */
+async function verifyEmailDomain(email) {
+  try {
+    const domain = email.split('@')[1];
+    if (!domain) {
+      return { valid: false, message: 'Invalid email format' };
+    }
+
+    // Check for MX records
+    const addresses = await resolveMx(domain);
+    
+    if (addresses && addresses.length > 0) {
+      return { valid: true, message: 'Domain verified' };
+    } else {
+      return { valid: false, message: `Email domain "${domain}" cannot receive emails` };
+    }
+  } catch (error) {
+    // DNS lookup failed - domain doesn't exist or has no MX records
+    const domain = email.split('@')[1];
+    if (error.code === 'ENOTFOUND' || error.code === 'ENODATA') {
+      return { valid: false, message: `Email domain "${domain}" does not exist or cannot receive emails` };
+    }
+    // For other errors, we'll be lenient and allow the email
+    console.warn('[contact] DNS verification warning:', error.message);
+    return { valid: true, message: 'Could not verify domain, proceeding anyway' };
+  }
+}
+
+/**
+ * Optional: Deep email verification using third-party API
+ * Uncomment and configure with your preferred service (ZeroBounce, Hunter.io, etc.)
+ * @param {string} email - Email address to verify
+ * @returns {Promise<{valid: boolean, message: string}>}
+ */
+/*
+async function verifyEmailWithAPI(email) {
+  const apiKey = process.env.EMAIL_VERIFICATION_API_KEY;
+  if (!apiKey) {
+    return { valid: true, message: 'API verification not configured' };
+  }
+
+  try {
+    // Example for AbstractAPI (replace with your chosen service)
+    const response = await fetch(
+      `https://emailvalidation.abstractapi.com/v1/?api_key=${apiKey}&email=${encodeURIComponent(email)}`
+    );
+    const data = await response.json();
+    
+    if (data.deliverability === 'DELIVERABLE') {
+      return { valid: true, message: 'Email verified' };
+    } else {
+      return { valid: false, message: 'Email address does not exist' };
+    }
+  } catch (error) {
+    console.error('[contact] API verification failed:', error);
+    return { valid: true, message: 'Could not verify email, proceeding anyway' };
+  }
+}
+*/
 
 export default async function handler(req, res) {
   // CORS headers
@@ -32,6 +100,29 @@ export default async function handler(req, res) {
     if (!emailRegex.test(email)) {
       return res.status(400).json({ success: false, message: 'Invalid email format' });
     }
+
+    // Verify email domain (DNS MX record check)
+    const domainVerification = await verifyEmailDomain(email);
+    if (!domainVerification.valid) {
+      return res.status(400).json({ 
+        success: false, 
+        message: domainVerification.message,
+        field: 'email'
+      });
+    }
+
+    // Optional: Deep email verification with third-party API
+    // Uncomment if you've configured EMAIL_VERIFICATION_API_KEY
+    /*
+    const apiVerification = await verifyEmailWithAPI(email);
+    if (!apiVerification.valid) {
+      return res.status(400).json({ 
+        success: false, 
+        message: apiVerification.message,
+        field: 'email'
+      });
+    }
+    */
 
     // Connect to MongoDB
     await connectToDatabase();
